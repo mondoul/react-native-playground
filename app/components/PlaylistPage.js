@@ -35,7 +35,7 @@ class PlaylistPage extends Component {
     }
 
     renderPlaylist() {
-        let { title, introduction, items } = this.props.data;
+        let { title, description, items } = this.props.data;
 
         return (
             <ScrollView style={styles.mainContainer}>
@@ -44,7 +44,7 @@ class PlaylistPage extends Component {
                 </View>
                 <View style={styles.playlistIntro}>
                     <Text style={[styles.heavyFont, styles.introTitle]}>{title}</Text>
-                    <Text style={[styles.defaultFont, styles.introBlock]}>{introduction}</Text>
+                    <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                 </View>
                 { items.map(i => this.renderCard(i)) }
             </ScrollView>

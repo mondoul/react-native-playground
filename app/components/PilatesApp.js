@@ -1,31 +1,74 @@
 import React, { Component } from 'react';
 import {
-    Navigator
+    Navigator,
+    View,
+    AsyncStorage
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import VideoPlayer from 'react-native-video-controls';
+import Spinner from 'react-native-loading-spinner-overlay';
 
+import colors from '../styles/colors';
 import HomePage from './HomePage';
 import ClassPage from './ClassPage';
 import PlaylistPage from './PlaylistPage';
 import InfoPage from './InfoPage';
 import TabBar from './TabBar';
-import data from '../../data';
 
 class PilatesApp extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            classData: {},
+            basicsData: {},
+            latestData: {}
+        };
+    }
+
+    getPlaylists() {
+        return fetch('https://pilates-playlist.herokuapp.com/playlists')
+            .then((response) => { return response.json(); });
+    }
+
+    componentDidMount() {
+        this.getPlaylists().then(data => {
+
+            let classData = data.playlists.find(p => p.id === '4221859');
+            let basicsData = data.playlists.find(p => p.id === '4221862');
+            let latestData = data.playlists.find(p => p.id === '4221868');
+
+            this.setState({
+                loading: false,
+                classData: classData,
+                basicsData: basicsData,
+                latestData: latestData
+            });
+
+        });
+    }
+
     render() {
-        //
-        return (
-            <Navigator
-                initialRoute={{id: 'HomePage', name: 'Index'}}
-                renderScene={this.renderScene.bind(this)}
-                configureScene={(route) => {
-                    if (route.sceneConfig) {
-                        return route.sceneConfig;
-                    }
-                    return Navigator.SceneConfigs.FloatFromRight;
-                }} />
-        );
+        if (this.state.loading) {
+            return (
+                <View style={{flex: 1}}>
+                    <Spinner visible={this.state.loading} textContent='Preparing the studio...' textStyle={{color: colors.whiteSmoke}} overlayColor={colors.turquoise} />
+                </View>
+            )
+        } else {
+            return (
+                <Navigator
+                    initialRoute={{id: 'HomePage', name: 'Index'}}
+                    renderScene={this.renderScene.bind(this)}
+                    configureScene={(route) => {
+                        if (route.sceneConfig) {
+                            return route.sceneConfig;
+                        }
+                        return Navigator.SceneConfigs.FloatFromRight;
+                    }}/>
+            );
+        }
     }
 
     renderScene(route, navigator) {
@@ -33,11 +76,11 @@ class PilatesApp extends Component {
         switch (routeId) {
             case 'HomePage':
                 return (
-                    <ScrollableTabView tabBarPosition='bottom' renderTabBar={ () => <TabBar /> } >
+                    <ScrollableTabView tabBarPosition='bottom' prerenderingSiblingsNumber={1} renderTabBar={ () => <TabBar /> } >
                         <HomePage tabLabel='home' key='home'/>
-                        <ClassPage navigator={navigator} tabLabel='class' key='classes' title='Basics' data={data.class}/>
-                        <PlaylistPage navigator={navigator} tabLabel='assignment' key='assignments' title='Assignments' data={data.assignments} />
-                        <PlaylistPage navigator={navigator} tabLabel='airline-seat-recline-extra' key='videos' title='Videos' data={data.latest}/>
+                        <ClassPage navigator={navigator} tabLabel='class' key='classes' title='Basics' data={this.state.classData}/>
+                        <PlaylistPage navigator={navigator} tabLabel='assignment' key='assignments' title='Assignments' data={this.state.basicsData} />
+                        <PlaylistPage navigator={navigator} tabLabel='airline-seat-recline-extra' key='videos' title='Videos' data={this.state.latestData}/>
                         <InfoPage navigator={navigator} tabLabel='info-outline' key='about' title='About 360 Pilates'/>
                     </ScrollableTabView>
                 );
@@ -46,6 +89,7 @@ class PilatesApp extends Component {
                     <VideoPlayer navigator={navigator}
                                  source={{uri: route.video.src}}
                                  title={route.video.title}
+                                 videoStyle={{backgroundColor: '#000'}}
                                  controlTimeout={ 3000 }/>
                 );
             default:

@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import Pilates360 from './app/components/PilatesApp';
 import {
   AppRegistry

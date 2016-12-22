@@ -35,7 +35,7 @@ class ClassPage extends Component {
     }
 
     renderClassPage() {
-        let { introduction, items } = this.props.data;
+        let { description, items } = this.props.data;
 
         return (
             <ScrollView style={styles.mainContainer}>
@@ -43,7 +43,7 @@ class ClassPage extends Component {
                     <Text style={[styles.heavyFont, styles.toolbarTitle]}>{this.props.title}</Text>
                 </View>
                 <View style={styles.intro}>
-                    <Text style={[styles.defaultFont, styles.introBlock]}>{introduction}</Text>
+                    <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                 </View>
                 { items.map(i => this.renderCard(i)) }
             </ScrollView>

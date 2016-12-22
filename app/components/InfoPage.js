@@ -25,7 +25,7 @@ class InfoPage extends Component {
                         http://benjamindegenhardt.com/
                     </Text>
                     <Text style={styles.footerC}>
-                        Made with <Icon name='favorite'/> in NYC
+                        Made with <Icon name='favorite' color='#FF4D4D'/> in NYC
                     </Text>
                 </View>
             </ScrollView>

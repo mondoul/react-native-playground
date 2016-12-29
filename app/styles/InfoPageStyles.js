@@ -4,23 +4,14 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
+import toolbarStyle from './toolbarStyle';
 
 const infoPageStyles = StyleSheet.create({
     ...fonts,
+    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.whiteSmoke,
-    },
-    toolbar: {
-        backgroundColor: colors.turquoise,
-        paddingTop: 30,
-        paddingBottom: 10,
-        flexDirection: 'row'
-    },
-    toolbarTitle: {
-        color: colors.whiteSmoke,
-        textAlign: 'center',
-        flex: 1
     },
     intro: {
         paddingTop: 40,

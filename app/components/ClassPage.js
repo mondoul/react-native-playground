@@ -7,13 +7,19 @@ import {
     ScrollView,
     Navigator
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/ClassPageStyles';
+import { getDuration } from '../utils';
 
 class ClassPage extends Component {
 
-    renderCard(card) {
+    renderCard(card, hasBottom) {
+        let containerStyle = [styles.cardContainer];
+        if (hasBottom)
+            containerStyle.push(styles.cardBottomDivider);
+
         return (
-            <View style={styles.cardContainer} key={card.order}>
+            <View style={ containerStyle } key={card.order}>
                 <View style={styles.cardHeader}>
                     <Text style={[styles.heavyFont, styles.cardOrder]}>{card.order}.</Text>
                     <Text style={[styles.defaultFont, styles.cardDescription]}>{card.description}</Text>
@@ -24,9 +30,12 @@ class ClassPage extends Component {
                         video: { src: card.video, title: card.title },
                         sceneConfig: Navigator.SceneConfigs.FloatFromBottom
                     })} style={styles.cardThumbnailContainer}>
-                    <View style={{flex: 1}}>
+                    <View style={{flex: 1 }}>
                         <Image style={styles.cardThumbnail} source={{uri: card.thumbnail }} >
-                            <Image style={styles.playOverlay} source={ require('../img/play.png') } />
+                            <Icon name='play-circle-o' size={60} style={styles.playOverlay}/>
+                            <Text style={styles.durationText}>
+                                { getDuration(card.duration) }
+                            </Text>
                         </Image>
                     </View>
                 </TouchableOpacity>
@@ -45,7 +54,7 @@ class ClassPage extends Component {
                 <View style={styles.intro}>
                     <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                 </View>
-                { items.map(i => this.renderCard(i)) }
+                { items.map((card, i) => this.renderCard(card, i < items.length - 1)) }
             </ScrollView>
         );
     }

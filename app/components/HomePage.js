@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
     Text,
     ScrollView,
@@ -21,17 +21,17 @@ class HomePage extends Component {
                         Nam vitae hendrerit tortor. Suspendisse potenti.</Text>
                 </View>
                 <View style={styles.sectionInfo}>
-                    <Icon name='class' size={40} color={colors.blue} />
+                    <Icon name='ios-school' size={40} color={colors.lightGray} style={styles.sectionIcon} />
                     <Text style={styles.sectionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at imperdiet nisl.
                         Etiam in neque et nulla congue sagittis id et enim.</Text>
                 </View>
                 <View style={styles.sectionInfo}>
-                    <Icon name='assignment' size={40} color={colors.blue} />
+                    <Icon name='ios-list-box' size={40} color={colors.lightGray} style={styles.sectionIcon} />
                     <Text style={styles.sectionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at imperdiet nisl.
                         Etiam in neque et nulla congue sagittis id et enim.</Text>
                 </View>
                 <View style={styles.sectionInfo}>
-                    <Icon name='airline-seat-recline-extra' size={40} color={colors.blue} />
+                    <Icon name='ios-play' size={40} color={colors.lightGray} style={[styles.sectionIcon, {paddingLeft: 10}]} />
                     <Text style={styles.sectionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at imperdiet nisl.
                         Etiam in neque et nulla congue sagittis id et enim.</Text>
                 </View>

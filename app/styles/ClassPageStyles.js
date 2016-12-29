@@ -4,23 +4,14 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
+import toolbarStyle from './toolbarStyle';
 
 const classPageStyles = StyleSheet.create({
     ...fonts,
+    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.whiteSmoke,
-    },
-    toolbar: {
-        backgroundColor: colors.turquoise,
-        paddingTop: 30,
-        paddingBottom: 10,
-        flexDirection: 'row'
-    },
-    toolbarTitle: {
-        color: colors.whiteSmoke,
-        textAlign: 'center',
-        flex: 1
     },
     intro: {
         paddingTop: 20,
@@ -32,12 +23,18 @@ const classPageStyles = StyleSheet.create({
         textAlign: 'justify',
     },
     cardContainer: {
-        paddingBottom: 15
+        paddingBottom: 20,
+        marginLeft: 15,
+        marginRight: 15,
+        marginBottom: 15
+    },
+    cardBottomDivider: {
+        borderBottomWidth: 1,
+        borderBottomColor: colors.lighterGray
     },
     cardHeader: {
         flexDirection: 'row',
-        paddingLeft: 10,
-        paddingBottom: 10,
+        paddingBottom: 15
     },
     cardOrder: {
         paddingRight: 8,
@@ -50,20 +47,32 @@ const classPageStyles = StyleSheet.create({
     },
     cardThumbnailContainer: {
         flex:1,
-        height: 180
+        height: 180,
+        width: 375,
+        alignSelf: 'center'
     },
     cardThumbnail: {
         flex: 1,
         resizeMode: 'contain',
         zIndex: 10,
+        alignItems: 'center'
     },
     playOverlay: {
         alignSelf: 'center',
         top: 60,
-        width: 60,
-        height: 60,
         zIndex: 20,
-        resizeMode: 'contain'
+        backgroundColor: 'rgba(0,0,0,0)',
+        color: 'rgba(255,255,255, 0.7)'
+    },
+    durationText: {
+        backgroundColor: 'rgba(0,0,0,0.4)',
+        color: 'white',
+        alignSelf: 'flex-end',
+        position: 'absolute',
+        paddingLeft: 3,
+        paddingRight: 3,
+        bottom: 0,
+        right: 28
     }
 });
 

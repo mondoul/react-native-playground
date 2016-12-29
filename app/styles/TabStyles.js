@@ -1,12 +1,14 @@
 import {
     StyleSheet
 } from 'react-native';
+import colors from './colors';
 
 const tabStyles = StyleSheet.create({
     tab: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: 10,
         paddingBottom: 10,
     },
     tabs: {
@@ -18,6 +20,7 @@ const tabStyles = StyleSheet.create({
         borderLeftWidth: 0,
         borderRightWidth: 0,
         borderBottomColor: 'rgba(0,0,0,0.05)',
+        backgroundColor: colors.darkerGray
     }
 });
 

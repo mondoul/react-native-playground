@@ -7,13 +7,19 @@ import {
     ScrollView,
     Navigator
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/PlaylistPageStyles';
+import { getDuration } from '../utils';
 
 class PlaylistPage extends Component {
 
-    renderCard(card) {
+    renderCard(card, hasBottom) {
+        let containerStyle = [styles.playlistItemContainer];
+        if (hasBottom)
+            containerStyle.push(styles.playlistItemBottomDivider);
+
         return (
-            <View style={styles.playlistItemContainer} key={card.order}>
+            <View style={containerStyle} key={card.order}>
                 <TouchableOpacity
                     onPress={() => this.props.navigator.push({
                         id: 'VideoPlayer',
@@ -22,7 +28,10 @@ class PlaylistPage extends Component {
                     })} style={styles.playlistThumbnailContainer}>
                     <View style={{flex: 1}}>
                         <Image style={styles.playlistThumbnail} source={{uri: card.thumbnail }} >
-                            <Image style={styles.playlistPlayOverlay} source={ require('../img/play.png') } />
+                            <Icon name='play-circle-o' size={30} style={styles.playlistPlayOverlay}/>
+                            <Text style={styles.durationText}>
+                                {getDuration(card.duration)}
+                            </Text>
                         </Image>
                     </View>
                 </TouchableOpacity>
@@ -46,7 +55,7 @@ class PlaylistPage extends Component {
                     <Text style={[styles.heavyFont, styles.introTitle]}>{title}</Text>
                     <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                 </View>
-                { items.map(i => this.renderCard(i)) }
+                { items.map((card, i) => this.renderCard(card, i < items.length - 1)) }
             </ScrollView>
         );
     }

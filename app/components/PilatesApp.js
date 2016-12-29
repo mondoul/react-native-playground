@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
     Navigator,
     View,
+    Image,
     AsyncStorage
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -49,6 +50,9 @@ class PilatesApp extends Component {
         });
     }
 
+    //<Image style={{resizeMode: 'contain'}} source={ require('../img/loading.gif') } />
+    //</Spinner>
+
     render() {
         if (this.state.loading) {
             return (
@@ -77,11 +81,11 @@ class PilatesApp extends Component {
             case 'HomePage':
                 return (
                     <ScrollableTabView tabBarPosition='bottom' prerenderingSiblingsNumber={1} renderTabBar={ () => <TabBar /> } >
-                        <HomePage tabLabel='home' key='home'/>
-                        <ClassPage navigator={navigator} tabLabel='class' key='classes' title='Basics' data={this.state.classData}/>
-                        <PlaylistPage navigator={navigator} tabLabel='assignment' key='assignments' title='Assignments' data={this.state.basicsData} />
-                        <PlaylistPage navigator={navigator} tabLabel='airline-seat-recline-extra' key='videos' title='Videos' data={this.state.latestData}/>
-                        <InfoPage navigator={navigator} tabLabel='info-outline' key='about' title='About 360 Pilates'/>
+                        <HomePage tabLabel='ios-home-outline' key='home'/>
+                        <ClassPage navigator={navigator} tabLabel='ios-school-outline' key='classes' title='Basics' data={this.state.classData}/>
+                        <PlaylistPage navigator={navigator} tabLabel='ios-list-outline' key='assignments' title='Assignments' data={this.state.basicsData} />
+                        <PlaylistPage navigator={navigator} tabLabel='ios-play-outline' key='videos' title='Videos' data={this.state.latestData}/>
+                        <InfoPage navigator={navigator} tabLabel='ios-information-circle-outline' key='about' title='About 360 Pilates'/>
                     </ScrollableTabView>
                 );
             case 'VideoPlayer':

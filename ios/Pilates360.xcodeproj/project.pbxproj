@@ -46,6 +46,7 @@
 		9C1A713B1E09AD740089223B /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C1A71271E09AD740089223B /* Lato-Thin.ttf */; };
 		9C1A713C1E09AD740089223B /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C1A71281E09AD740089223B /* Lato-ThinItalic.ttf */; };
 		9C1A71401E0AA6390089223B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C1A713F1E0AA6390089223B /* Images.xcassets */; };
+		A238FBB6675F4DEB8B849B90 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A02DE8DDA4D04281AD040D94 /* libRCTOrientation.a */; };
 		B017EFE3F6274A998AA08064 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A9540A56004BF7B41C0772 /* libRCTVideo.a */; };
 		B68E0F918757407A9C113B8F /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CBF6A70EA6149EA8E6FC207 /* MaterialIcons.ttf */; };
 		B9D78B737C6144B0B0731E7D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73630CDAC6814C52B064E98B /* Foundation.ttf */; };
@@ -210,6 +211,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		9C7729A71E15D57600C67D83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B402080CC49B493594219DC9 /* RCTOrientation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTOrientation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -261,7 +269,9 @@
 		9C1A71271E09AD740089223B /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Thin.ttf"; path = "../../../../Downloads/Lato2OFL/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		9C1A71281E09AD740089223B /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "../../../../Downloads/Lato2OFL/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		9C1A713F1E0AA6390089223B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Pilates360/Images.xcassets; sourceTree = "<group>"; };
+		A02DE8DDA4D04281AD040D94 /* libRCTOrientation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOrientation.a; sourceTree = "<group>"; };
 		A5A9540A56004BF7B41C0772 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
+		B402080CC49B493594219DC9 /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTOrientation.xcodeproj; path = "../node_modules/react-native-orientation/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; };
 		D3981B1905D149908732D299 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		E856A1AC062A4A199AB52199 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/ios/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
 		F9CB2E4DB67647EBA0A2BEBE /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
@@ -294,6 +304,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				F122C946FF8B45C1A1EC759F /* libRNVectorIcons.a in Frameworks */,
 				B017EFE3F6274A998AA08064 /* libRCTVideo.a in Frameworks */,
+				A238FBB6675F4DEB8B849B90 /* libRCTOrientation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +445,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				888295E3D0A74A9F9FE7E91A /* RNVectorIcons.xcodeproj */,
 				E856A1AC062A4A199AB52199 /* RCTVideo.xcodeproj */,
+				B402080CC49B493594219DC9 /* RCTOrientation.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -481,6 +493,14 @@
 			isa = PBXGroup;
 			children = (
 				9C1A710B1E09AD200089223B /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C77299A1E15D57600C67D83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C7729A81E15D57600C67D83 /* libRCTOrientation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -612,6 +632,10 @@
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
 					ProjectRef = 00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = 9C77299A1E15D57600C67D83 /* Products */;
+					ProjectRef = B402080CC49B493594219DC9 /* RCTOrientation.xcodeproj */;
 				},
 				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
@@ -798,6 +822,13 @@
 			remoteRef = 9C1A71151E09AD200089223B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		9C7729A81E15D57600C67D83 /* libRCTOrientation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTOrientation.a;
+			remoteRef = 9C7729A71E15D57600C67D83 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -920,6 +951,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pilates360.app/Pilates360";
@@ -937,6 +969,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1022,6 +1055,7 @@
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
+					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1064,6 +1098,7 @@
 					"$(SRCROOT)/../node_modules/react-native/ReactCommon/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-video/ios",
+					"$(SRCROOT)/../node_modules/react-native-orientation/iOS/RCTOrientation/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1082,7 +1117,7 @@
 				00E356F71AD99517003FC87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Pilates360" */ = {
 			isa = XCConfigurationList;
@@ -1091,7 +1126,7 @@
 				13B07F951A680F5B00A75B9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Pilates360" */ = {
 			isa = XCConfigurationList;
@@ -1100,7 +1135,7 @@
 				83CBBA211A601CBA00E9B192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,7 @@ import {
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import VideoPlayer from 'react-native-video-controls';
 import Spinner from 'react-native-loading-spinner-overlay';
+import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
 import HomePage from './HomePage';
@@ -34,6 +35,7 @@ class PilatesApp extends Component {
     }
 
     componentDidMount() {
+        Orientation.lockToPortrait();
         this.getPlaylists().then(data => {
 
             let classData = data.playlists.find(p => p.id === '4221859');
@@ -79,6 +81,7 @@ class PilatesApp extends Component {
         let routeId = route.id;
         switch (routeId) {
             case 'HomePage':
+                Orientation.lockToPortrait();
                 return (
                     <ScrollableTabView tabBarPosition='bottom' prerenderingSiblingsNumber={1} renderTabBar={ () => <TabBar /> } >
                         <HomePage tabLabel='ios-home-outline' key='home'/>
@@ -89,6 +92,7 @@ class PilatesApp extends Component {
                     </ScrollableTabView>
                 );
             case 'VideoPlayer':
+                Orientation.unlockAllOrientations();
                 return (
                     <VideoPlayer navigator={navigator}
                                  source={{uri: route.video.src}}

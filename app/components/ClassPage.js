@@ -7,7 +7,6 @@ import {
     ScrollView,
     Navigator
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../styles/ClassPageStyles';
 import { getDuration } from '../utils';
 
@@ -32,7 +31,6 @@ class ClassPage extends Component {
                     })} style={styles.cardThumbnailContainer}>
                     <View style={{flex: 1 }}>
                         <Image style={styles.cardThumbnail} source={{uri: card.thumbnail }} >
-                            <Icon name='play-circle-o' size={60} style={styles.playOverlay}/>
                             <Text style={styles.durationText}>
                                 { getDuration(card.duration) }
                             </Text>
@@ -47,15 +45,18 @@ class ClassPage extends Component {
         let { description, items } = this.props.data;
 
         return (
-            <ScrollView style={styles.mainContainer}>
+            <View style={{flex:1}}>
                 <View style={styles.toolbar}>
                     <Text style={[styles.heavyFont, styles.toolbarTitle]}>{this.props.title}</Text>
                 </View>
-                <View style={styles.intro}>
-                    <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
-                </View>
-                { items.map((card, i) => this.renderCard(card, i < items.length - 1)) }
-            </ScrollView>
+                <ScrollView style={styles.mainContainer}>
+
+                    <View style={styles.intro}>
+                        <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
+                    </View>
+                    { items.map((card, i) => this.renderCard(card, i < items.length - 1)) }
+                </ScrollView>
+            </View>
         );
     }
 

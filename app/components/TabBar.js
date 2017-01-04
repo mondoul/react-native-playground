@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-//import Icon from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '../styles/TabStyles';
-import colors from '../styles/colors';
 import {
     TouchableOpacity,
     View
 } from 'react-native';
-
 
 class TabBar extends Component {
 

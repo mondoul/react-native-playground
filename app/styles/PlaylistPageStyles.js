@@ -11,7 +11,7 @@ const playlistPageStyles = StyleSheet.create({
     ...toolbarStyle,
     mainContainer: {
         flex: 1,
-        backgroundColor: colors.whiteSmoke,
+        backgroundColor: colors.white,
     },
     introBlock: {
         textAlign: 'justify',
@@ -47,16 +47,9 @@ const playlistPageStyles = StyleSheet.create({
         zIndex: 10,
         position: 'relative'
     },
-    playlistPlayOverlay: {
-        alignSelf: 'center',
-        top: 35,
-        zIndex: 20,
-        backgroundColor: 'rgba(0,0,0,0)',
-        color: 'rgba(255,255,255, 0.7)'
-    },
     durationText: {
         backgroundColor: 'rgba(0,0,0,0.4)',
-        color: 'white',
+        color: colors.white,
         alignSelf: 'flex-end',
         position: 'absolute',
         paddingLeft: 3,

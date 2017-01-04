@@ -9,12 +9,18 @@
   "dependencies": {
     "react": "15.4.1",
     "react-native": "0.39.2",
+    "react-native-fs": "^2.0.1-rc.2",
     "react-native-loading-spinner-overlay": "^0.4.1",
     "react-native-orientation": "^1.17.0",
+    "react-native-progress": "^3.2.0",
     "react-native-scrollable-tab-view": "^0.7.0",
     "react-native-vector-icons": "^3.0.0",
     "react-native-video": "git+https://github.com/react-native-community/react-native-video.git#master",
-    "react-native-video-controls": "git+https://github.com/mondoul/react-native-video-controls.git#master"
+    "react-native-video-controls": "git+https://github.com/mondoul/react-native-video-controls.git#master",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

@@ -7,6 +7,7 @@ import {
     ScrollView,
     Navigator
 } from 'react-native';
+import { connect } from 'react-redux';
 import styles from '../styles/PlaylistPageStyles';
 import { getDuration } from '../utils';
 
@@ -68,5 +69,10 @@ class PlaylistPage extends Component {
         )
     }
 }
+
+PlaylistPage.propTypes = {
+    dispatch: React.PropTypes.func,
+    data: React.PropTypes.object
+};
 
 export default PlaylistPage;

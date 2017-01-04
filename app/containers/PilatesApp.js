@@ -3,6 +3,7 @@ import {
     Navigator,
     View,
     Image,
+    Text,
     AsyncStorage
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
@@ -11,55 +12,38 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
-import HomePage from './HomePage';
-import ClassPage from './ClassPage';
-import PlaylistPage from './PlaylistPage';
-import InfoPage from './InfoPage';
-import TabBar from './TabBar';
+import HomePage from '../components/HomePage';
+import ClassPage from '../containers/ClassPage';
+import PlaylistPage from '../components/PlaylistPage';
+import InfoPage from '../components/InfoPage';
+import TabBar from '../components/TabBar';
+import { connect } from 'react-redux';
+import { fetchPlaylists, fetchLocalVideos } from '../actions';
 
 class PilatesApp extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-            classData: {},
-            basicsData: {},
-            latestData: {}
-        };
-    }
-
-    getPlaylists() {
-        return fetch('https://pilates-playlist.herokuapp.com/playlists')
-            .then((response) => { return response.json(); });
-    }
-
     componentDidMount() {
         Orientation.lockToPortrait();
-        this.getPlaylists().then(data => {
-
-            let classData = data.playlists.find(p => p.id === '4221859');
-            let basicsData = data.playlists.find(p => p.id === '4221862');
-            let latestData = data.playlists.find(p => p.id === '4221868');
-
-            this.setState({
-                loading: false,
-                classData: classData,
-                basicsData: basicsData,
-                latestData: latestData
-            });
-
-        });
+        this.props.dispatch(fetchLocalVideos());
+        this.props.dispatch(fetchPlaylists());
     }
 
-    //<Image style={{resizeMode: 'contain'}} source={ require('../img/loading.gif') } />
-    //</Spinner>
-
     render() {
-        if (this.state.loading) {
+        let { isFetching, isError } = this.props;
+        console.log('Fetching', isFetching);
+
+        if (isError) {
             return (
                 <View style={{flex: 1}}>
-                    <Spinner visible={this.state.loading} textContent='Preparing the studio...' textStyle={{color: colors.whiteSmoke}} overlayColor={colors.turquoise} />
+                    <Spinner visible={isError} textStyle={{color: colors.white}} overlayColor={colors.turquoise} >
+                        <Text>There was a error initializing the application data. Please try again.</Text>
+                    </Spinner>
+                </View>
+            )
+        } else if (isFetching) {
+            return (
+                <View style={{flex: 1}}>
+                    <Spinner visible={isFetching} textContent='Preparing the studio...' textStyle={{color: colors.white}} overlayColor={colors.turquoise} />
                 </View>
             )
         } else {
@@ -79,15 +63,16 @@ class PilatesApp extends Component {
 
     renderScene(route, navigator) {
         let routeId = route.id;
+        let { classes, basics, latest } = this.props;
         switch (routeId) {
             case 'HomePage':
                 Orientation.lockToPortrait();
                 return (
                     <ScrollableTabView tabBarPosition='bottom' prerenderingSiblingsNumber={1} renderTabBar={ () => <TabBar /> } >
                         <HomePage tabLabel='ios-home-outline' key='home'/>
-                        <ClassPage navigator={navigator} tabLabel='ios-school-outline' key='classes' title='Basics' data={this.state.classData}/>
-                        <PlaylistPage navigator={navigator} tabLabel='ios-list-outline' key='assignments' title='Assignments' data={this.state.basicsData} />
-                        <PlaylistPage navigator={navigator} tabLabel='ios-play-outline' key='videos' title='Videos' data={this.state.latestData}/>
+                        <ClassPage navigator={navigator} tabLabel='ios-school-outline' key='classes' title='Basics' data={classes} />
+                        <PlaylistPage navigator={navigator} tabLabel='ios-list-outline' key='assignments' title='Assignments' data={basics} />
+                        <PlaylistPage navigator={navigator} tabLabel='ios-play-outline' key='videos' title='Videos' data={latest} />
                         <InfoPage navigator={navigator} tabLabel='ios-information-circle-outline' key='about' title='About 360 Pilates'/>
                     </ScrollableTabView>
                 );
@@ -107,4 +92,20 @@ class PilatesApp extends Component {
 
 }
 
-export default PilatesApp;
+PilatesApp.propTypes = {
+    dispatch: React.PropTypes.func,
+    classes: React.PropTypes.object,
+    basics: React.PropTypes.object,
+    latest: React.PropTypes.object,
+    isError: React.PropTypes.bool,
+    isFetching: React.PropTypes.bool
+};
+
+const mapStateToProps = (state) => {
+    let { classes, basics, latest, isFetching, isError } = state.playlistData;
+    return {
+        classes, basics, latest, isFetching, isError
+    };
+};
+
+export default connect(mapStateToProps)(PilatesApp);

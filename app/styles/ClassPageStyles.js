@@ -11,7 +11,7 @@ const classPageStyles = StyleSheet.create({
     ...toolbarStyle,
     mainContainer: {
         flex: 1,
-        backgroundColor: colors.whiteSmoke,
+        backgroundColor: colors.white,
     },
     intro: {
         paddingTop: 20,
@@ -26,7 +26,8 @@ const classPageStyles = StyleSheet.create({
         paddingBottom: 20,
         marginLeft: 15,
         marginRight: 15,
-        marginBottom: 15
+        marginBottom: 15,
+        flex: 1
     },
     cardBottomDivider: {
         borderBottomWidth: 1,
@@ -57,16 +58,9 @@ const classPageStyles = StyleSheet.create({
         zIndex: 10,
         alignItems: 'center'
     },
-    playOverlay: {
-        alignSelf: 'center',
-        top: 60,
-        zIndex: 20,
-        backgroundColor: 'rgba(0,0,0,0)',
-        color: 'rgba(255,255,255, 0.7)'
-    },
     durationText: {
         backgroundColor: 'rgba(0,0,0,0.4)',
-        color: 'white',
+        color: colors.white,
         alignSelf: 'flex-end',
         position: 'absolute',
         paddingLeft: 3,

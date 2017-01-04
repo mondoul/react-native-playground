@@ -11,7 +11,7 @@ const homePageStyles = StyleSheet.create({
     ...toolbarStyle,
     mainContainer: {
         flex: 1,
-        backgroundColor: colors.whiteSmoke,
+        backgroundColor: colors.white,
     },
     intro: {
         paddingTop: 40,

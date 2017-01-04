@@ -2,7 +2,7 @@ import colors from './colors';
 
 const toolbarStyle = {
     toolbar: {
-        backgroundColor: colors.whiteSmoke,
+        backgroundColor: colors.white,
         borderBottomColor: colors.lightGray,
         borderBottomWidth: 1,
         paddingTop: 30,

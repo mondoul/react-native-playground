@@ -1,6 +1,12 @@
-import colors from './colors';
+import {
+    StyleSheet
+} from 'react-native';
 
-const toolbarStyle = {
+import colors from './colors';
+import fonts from './fonts';
+
+const toolbarStyle = StyleSheet.create({
+    ...fonts,
     toolbar: {
         backgroundColor: colors.white,
         borderBottomColor: colors.lightGray,
@@ -14,6 +20,6 @@ const toolbarStyle = {
         textAlign: 'center',
         flex: 1
     },
-};
+});
 
 export default toolbarStyle;

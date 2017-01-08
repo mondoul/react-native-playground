@@ -8,20 +8,20 @@ import {
 import { connect } from 'react-redux';
 import styles from '../styles/ClassPageStyles';
 import ClassCard from '../components/ClassCard';
-import { saveVideoLocally } from '../actions';
+import Toolbar from '../components/Toolbar';
+import { saveVideoLocally, removeLocalVideo } from '../actions';
+import { mapLocalDataToCards } from '../utils';
 
 class ClassPage extends Component {
 
     renderClassPage() {
-        let { cards, isOnline, title, description, onStartDownload } = this.props;
+        let { description } = this.props.data;
+        let { cards, isOnline, title, offlineSync } = this.props;
 
         return (
             <View style={{flex:1}}>
-                <View style={styles.toolbar}>
-                    <Text style={[styles.heavyFont, styles.toolbarTitle]}>{title}</Text>
-                </View>
+                <Toolbar title={title} />
                 <ScrollView style={styles.mainContainer}>
-
                     <View style={styles.intro}>
                         <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                     </View>
@@ -31,7 +31,7 @@ class ClassPage extends Component {
                         return (
                             <ClassCard key={i} card={card} isOnline={isOnline}
                                        drawBottomDivider={drawBottomDivider}
-                                       onStartDownload={onStartDownload}
+                                       offlineSync={offlineSync}
                                        navigator={this.props.navigator}/>
                         );
                     }) }
@@ -62,29 +62,7 @@ const mapStateToProps = (state, ownProps) => {
     let { isOnline } = state.playlistData;
 
     let { items } = ownProps.data;
-    let cards = [];
-
-    items.forEach(i => {
-        let localItem = localData[i.id];
-        if (localItem) {
-            console.log(localItem);
-            cards.push(
-                Object.assign({}, i, {
-                    isLocal: true,
-                    isDownloading: localItem.isSaving,
-                    isError: localItem.isError,
-                    path: localItem.path
-                })
-            );
-        } else {
-            cards.push(
-                Object.assign({}, i, {
-                    isLocal: false,
-                    isDownloading: false
-                })
-            );
-        }
-    });
+    let cards = mapLocalDataToCards(items, localData);
 
     return {
         cards,
@@ -94,7 +72,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onStartDownload: (id, uri) => dispatch(saveVideoLocally(id, uri))
+        offlineSync: (id, available, uri, imgUri) => {
+            if (available)
+                dispatch(saveVideoLocally(id, uri, imgUri));
+            else
+                dispatch(removeLocalVideo(id));
+        }
     }
 };
 

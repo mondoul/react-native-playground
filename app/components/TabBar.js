@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Foundation';
 import styles from '../styles/TabStyles';
 import {
     TouchableOpacity,

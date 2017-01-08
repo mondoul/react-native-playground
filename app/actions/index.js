@@ -1,13 +1,18 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, NetInfo } from 'react-native';
 import RNFS from 'react-native-fs';
 
 const playlistLocalStorageKey = 'Playlists';
 const basePath = RNFS.DocumentDirectoryPath;
 
-const getFilePath = (videoId) => {
+const getVideoFilePath = (videoId) => {
     return `${basePath}/${videoId}.mp4`;
 };
 
+const getImgFilePath = (videoId) => {
+    return `${basePath}/${videoId}.jpg`;
+};
+
+export const CONNECTION_STATUS = 'CONNECTION_STATUS';
 export const REQUEST_PLAYLISTS = 'REQUEST_PLAYLISTS';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const READ_LOCAL_VIDEOS = 'READ_LOCAL_VIDEOS';
@@ -16,6 +21,21 @@ export const SAVED_LOCALPLAYLISTS = 'SAVED_LOCALPLAYLISTS';
 export const SAVING_VIDEO = 'SAVING_VIDEO';
 export const SAVED_VIDEO = 'SAVED_VIDEO';
 export const FAILED_SAVED_VIDEO = 'FAILED_SAVED_VIDEO';
+export const REMOVED_VIDEO = 'REMOVED_VIDEO';
+export const FAILED_REMOVE_VIDEO = 'FAILED_REMOVE_VIDEO';
+
+export const connectionStatus = (isConnected) => {
+    return {
+        type: CONNECTION_STATUS,
+        isConnected
+    }
+};
+
+export const checkConnectivityStatus = () => {
+    return (dispatch) => {
+        NetInfo.isConnected.fetch().then(isConnected => dispatch(connectionStatus(isConnected)));
+    }
+};
 
 const requestPlaylists = () => {
     return {
@@ -56,18 +76,18 @@ export const fetchPlaylists = () => {
                     AsyncStorage.setItem(playlistLocalStorageKey, JSON.stringify(json))
                         .then(() => dispatch(savedLocalPlaylists()));
                 } else {
-                    console.log('Empty playlists', err);
-                    getLocalPlaylists();
+                    console.log('Empty playlists');
+                    return getLocalPlaylists(dispatch);
                 }
             }).catch(err => {
                 console.log('Error fetching playlists', err);
-                getLocalPlaylists();
+                return getLocalPlaylists(dispatch);
             });
     };
 };
 
-const getLocalPlaylists = () => {
-   return AsyncStorage.getItem(playlistLocalStorageKey)
+const getLocalPlaylists = (dispatch) => {
+   AsyncStorage.getItem(playlistLocalStorageKey)
        .then(localPlaylists => {
            dispatch(receivePlaylists(JSON.parse(localPlaylists), false, false));
        }).catch(err => {
@@ -82,11 +102,19 @@ const savingVideo = (videoId) => {
     }
 };
 
-const savedVideo = (videoId, path) => {
+const savedVideo = (videoId, videoPath, imgPath) => {
     return {
         type: SAVED_VIDEO,
         videoId,
-        path
+        videoPath,
+        imgPath
+    }
+};
+
+const removedVideo = (videoId) => {
+    return {
+        type: REMOVED_VIDEO,
+        videoId
     }
 };
 
@@ -97,18 +125,47 @@ const failedSavedVideo = (videoId) => {
     }
 };
 
-export const saveVideoLocally = (id, url) => {
+const failedRemovedVideo = (videoId) => {
+    return {
+        type: FAILED_REMOVE_VIDEO,
+        videoId
+    }
+};
+
+export const saveVideoLocally = (id, url, imgUrl) => {
     return (dispatch) => {
         dispatch(savingVideo(id));
         return RNFS.downloadFile({
-                fromUrl: url,
-                toFile: getFilePath(id),
+                fromUrl: imgUrl,
+                toFile: getImgFilePath(id)
             }).promise.then(() => {
-                dispatch(savedVideo(id, getFilePath(id)));
+                RNFS.downloadFile({
+                    fromUrl: url,
+                    toFile: getVideoFilePath(id),
+                }).promise.then(() => {
+                    dispatch(savedVideo(id, getVideoFilePath(id), getImgFilePath(id)));
+                }).catch(() => {
+                    dispatch(failedSavedVideo(id));
+                    //todo: dispatch a popup ?
+                });
             }).catch(() => {
                 dispatch(failedSavedVideo(id));
-                //todo: dispatch a popup ?
             });
+    }
+};
+
+export const removeLocalVideo = (id) => {
+    return (dispatch) => {
+        return RNFS.unlink(getVideoFilePath(id)).then(() => {
+                    RNFS.unlink(getImgFilePath(id)).then(() => {
+                        dispatch(removedVideo(id));
+                    }).catch(() => {
+                        dispatch(failedRemovedVideo(id));
+                    });
+               }).catch(() => {
+                   dispatch(failedRemovedVideo(id));
+                   //todo: dispatch a popup ?
+               });
     }
 };
 
@@ -127,7 +184,8 @@ export const fetchLocalVideos = () => {
                     let id = v.name.substr(0, v.name.indexOf('.mp4'));
                     return {
                         id,
-                        path: `${basePath}/${v.name}`
+                        path: `${basePath}/${v.name}`,
+                        imgPath: `${basePath}/${id}.jpg`
                     };
                 });
             dispatch(readLocalVideos(videoFiles));

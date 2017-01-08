@@ -2,60 +2,41 @@ import React, { Component } from 'react';
 import {
     View,
     Text,
-    TouchableOpacity,
     Image,
     ScrollView,
     Navigator
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../styles/PlaylistPageStyles';
-import { getDuration } from '../utils';
+import Toolbar from './Toolbar';
+import PlaylistCard from '../components/PlaylistCard';
+import { mapLocalDataToCards } from '../utils';
+import { saveVideoLocally, removeLocalVideo } from '../actions';
 
 class PlaylistPage extends Component {
     
-    renderCard(card, hasBottom) {
-        let containerStyle = [styles.playlistItemContainer];
-        if (hasBottom)
-            containerStyle.push(styles.playlistItemBottomDivider);
-
-        return (
-            <View style={containerStyle} key={card.order}>
-                <TouchableOpacity
-                    onPress={() => this.props.navigator.push({
-                        id: 'VideoPlayer',
-                        video: { src: card.video, title: card.title },
-                        sceneConfig: Navigator.SceneConfigs.FloatFromBottom
-                    })} style={styles.playlistThumbnailContainer}>
-                    <View style={{flex: 1}}>
-                        <Image style={styles.playlistThumbnail} source={{uri: card.thumbnail }} >
-                            <Text style={styles.durationText}>
-                                {getDuration(card.duration)}
-                            </Text>
-                        </Image>
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.playlistItemWrapper}>
-                    <Text style={[styles.heavyFont, styles.playlistItemOrder]}>{card.order}.  {card.title}</Text>
-                    <Text style={[styles.defaultFont, styles.playlistItemDescription]}>{card.description}</Text>
-                </View>
-            </View>
-        );
-    }
-
     renderPlaylist() {
-        let { title, description, items } = this.props.data;
+        let { description } = this.props.data;
+        let { offlineSync, cards, isOnline } = this.props;
 
         return (
             <View style={{flex:1}}>
-                <View style={styles.toolbar}>
-                    <Text style={[styles.heavyFont, styles.toolbarTitle]}>{this.props.title}</Text>
-                </View>
+                <Toolbar title={this.props.title}/>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.playlistIntro}>
-                        <Text style={[styles.heavyFont, styles.introTitle]}>{title}</Text>
                         <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
                     </View>
-                    { items.map((card, i) => this.renderCard(card, i < items.length - 1)) }
+                    { cards.map((card, i) => {
+                        let hasBottom = i < cards.length - 1;
+                        return (
+                            <PlaylistCard key={i} card={card}
+                                    hasBottom={hasBottom}
+                                    offlineSync={offlineSync}
+                                    isOnline={isOnline}
+                                    navigator={this.props.navigator}
+                            />
+                            );
+                    }) }
                 </ScrollView>
             </View>
         );
@@ -75,4 +56,28 @@ PlaylistPage.propTypes = {
     data: React.PropTypes.object
 };
 
-export default PlaylistPage;
+const mapStateToProps = (state, ownProps) => {
+    let { localData } = state;
+    let { isOnline } = state.playlistData;
+
+    let { items } = ownProps.data;
+    let cards = mapLocalDataToCards(items, localData);
+
+    return {
+        cards,
+        isOnline
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        offlineSync: (id, available, uri, imgUri) => {
+            if (available)
+                dispatch(saveVideoLocally(id, uri, imgUri));
+            else
+                dispatch(removeLocalVideo(id));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistPage);

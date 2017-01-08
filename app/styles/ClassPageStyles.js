@@ -4,17 +4,16 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
-import toolbarStyle from './toolbarStyle';
 
 const classPageStyles = StyleSheet.create({
     ...fonts,
-    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.white,
+        paddingTop: 15
     },
     intro: {
-        paddingTop: 20,
+        paddingTop: 5,
         paddingLeft: 15,
         paddingRight: 15,
         paddingBottom: 30,
@@ -34,17 +33,19 @@ const classPageStyles = StyleSheet.create({
         borderBottomColor: colors.lighterGray
     },
     cardHeader: {
-        flexDirection: 'row',
-        paddingBottom: 15
+        flexDirection: 'column',
+        paddingBottom: 5,
+        justifyContent: 'center'
     },
     cardOrder: {
         paddingRight: 8,
         color: colors.darkGray
     },
+    cardTitle: {
+        paddingBottom: 8
+    },
     cardDescription: {
-        flex: 1,
-        textAlign: 'justify',
-        paddingRight: 15
+        textAlign: 'justify'
     },
     cardThumbnailContainer: {
         flex:1,
@@ -67,6 +68,29 @@ const classPageStyles = StyleSheet.create({
         paddingRight: 3,
         bottom: 0,
         right: 28
+    },
+    syncContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        paddingBottom: 8,
+        marginRight: 12
+    },
+    syncText: {
+        alignSelf: 'center',
+        paddingRight: 5,
+        color: colors.darkGray
+    },
+    offlineContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 180,
+        backgroundColor: colors.lighterGray
+    },
+    offlineText: {
+        color: colors.white
     }
 });
 

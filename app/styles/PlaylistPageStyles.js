@@ -4,11 +4,9 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
-import toolbarStyle from './toolbarStyle';
 
 const playlistPageStyles = StyleSheet.create({
     ...fonts,
-    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.white,
@@ -38,8 +36,15 @@ const playlistPageStyles = StyleSheet.create({
     },
     playlistThumbnailContainer: {
         flex: 1,
-        width: 200,
-        height: 115,
+        height: 80
+    },
+    offlineContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 80,
+        backgroundColor: colors.lighterGray
     },
     playlistThumbnail: {
         flex: 1,
@@ -58,7 +63,7 @@ const playlistPageStyles = StyleSheet.create({
         right: 0
     },
     playlistItemWrapper: {
-        flex:0.7,
+        flex:1.5,
         paddingLeft: 10,
         alignSelf: 'flex-start'
     },

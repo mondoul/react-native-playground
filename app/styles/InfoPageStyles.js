@@ -4,11 +4,9 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
-import toolbarStyle from './toolbarStyle';
 
 const infoPageStyles = StyleSheet.create({
     ...fonts,
-    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.white,

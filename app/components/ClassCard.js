@@ -7,7 +7,7 @@ import {
     Navigator
 } from 'react-native';
 import { getDuration } from '../utils';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Foundation';
 import styles from '../styles/ClassPageStyles';
 import colors from '../styles/colors';
 
@@ -15,14 +15,17 @@ class ClassCard extends Component {
 
     render() {
 
-        let { card, drawBottomDivider, navigator, isOnline, onStartDownload } = this.props;
+        let { card, drawBottomDivider, navigator, isOnline, offlineSync } = this.props;
 
-        let videoUri;
+        let videoUri, imgSource;
         if (card.isLocal) {
             videoUri = card.path;
+            imgSource = {uri: 'file://' + card.imgPath};
         } else {
             videoUri = card.video;
+            imgSource = {uri: card.thumbnail};
         }
+
         let containerStyle = [styles.cardContainer];
         if (drawBottomDivider)
             containerStyle.push(styles.cardBottomDivider);
@@ -30,42 +33,56 @@ class ClassCard extends Component {
         return (
             <View style={ containerStyle } key={card.order}>
                 <View style={styles.cardHeader}>
-                    <Text style={[styles.heavyFont, styles.cardOrder]}>{card.order}.</Text>
+                    <Text style={[styles.heavyFont, styles.cardTitle]}>{card.title}</Text>
                     <Text style={[styles.defaultFont, styles.cardDescription]}>{card.description}</Text>
                 </View>
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    {!card.isLocal &&
-                        <TouchableOpacity onPress={ () => onStartDownload(card.id, card.download) }>
-                            <Icon name='ios-cloud-download-outline' size={30} color={colors.lightGray}/>
+                <View style={styles.syncContainer}>
+                    {!card.isLocal && !card.isDownloading &&
+                        <TouchableOpacity onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
+                            <Icon name='download' size={20} color={colors.lightGray}/>
                         </TouchableOpacity>
                     }
                     {
                         card.isLocal && !card.isDownloading &&
-                        <Icon name='ios-checkmark-circle-outline' size={30} color={colors.turquoise} />
+                            <TouchableOpacity onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
+                                <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
+                            </TouchableOpacity>
                     }
                     {
                         card.isDownloading &&
-                        <Image source={require('../img/progress.gif')} style={{width: 30, height: 30}} />
+                            <Image source={require('../img/progress.gif')} style={{width: 22, height: 22}} />
                     }
                 </View>
-                <TouchableOpacity
-                    onPress={() => {
-                        console.log('playing from ' + videoUri);
-                        navigator.push({
-                            id: 'VideoPlayer',
-                            video: {src: videoUri, title: card.title},
-                            sceneConfig: Navigator.SceneConfigs.FloatFromBottom
-                        });
+                {
+                    (isOnline || card.isLocal) &&
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigator.push({
+                                id: 'VideoPlayer',
+                                video: {src: videoUri, title: card.title},
+                                sceneConfig: Navigator.SceneConfigs.FloatFromBottom
+                            });
                         }
-                    } style={styles.cardThumbnailContainer}>
-                    <View style={{flex: 1 }}>
-                        <Image style={styles.cardThumbnail} source={{uri: card.thumbnail }} >
-                            <Text style={styles.durationText}>
-                                { getDuration(card.duration) }
-                            </Text>
-                        </Image>
+                        } style={styles.cardThumbnailContainer}>
+                        <View style={{flex: 1 }}>
+                            <Image style={styles.cardThumbnail} source={imgSource} >
+                                <Text style={styles.durationText}>
+                                    { getDuration(card.duration) }
+                                </Text>
+                            </Image>
+                        </View>
+                    </TouchableOpacity>
+                }
+                {
+                    !isOnline && !card.isLocal &&
+                    <View style={styles.offlineContainer}>
+                        <Icon name='prohibited' size={40} color={colors.white} />
+                        <Text style={[styles.heavyFont, styles.offlineText]}>
+                                Not Available Offline
+                        </Text>
                     </View>
-                </TouchableOpacity>
+                }
+
             </View>
         );
     }
@@ -76,7 +93,7 @@ ClassCard.propTypes = {
     drawBottomDivider: React.PropTypes.bool,
     navigator: React.PropTypes.any,
     isOnline: React.PropTypes.bool,
-    onStartDownload: React.PropTypes.func
+    offlineSync: React.PropTypes.func
 };
 
 export default ClassCard;

@@ -4,17 +4,15 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
-import toolbarStyle from './toolbarStyle';
 
 const homePageStyles = StyleSheet.create({
     ...fonts,
-    ...toolbarStyle,
     mainContainer: {
         flex: 1,
         backgroundColor: colors.white,
     },
     intro: {
-        paddingTop: 40,
+        paddingTop: 30,
         paddingLeft: 15,
         paddingRight: 15,
         paddingBottom: 50,

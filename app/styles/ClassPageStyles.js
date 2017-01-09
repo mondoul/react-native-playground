@@ -26,7 +26,6 @@ const classPageStyles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
         marginBottom: 15,
-        flex: 1
     },
     cardBottomDivider: {
         borderBottomWidth: 1,
@@ -48,14 +47,13 @@ const classPageStyles = StyleSheet.create({
         textAlign: 'justify'
     },
     cardThumbnailContainer: {
-        flex:1,
         height: 180,
         width: 375,
         alignSelf: 'center'
     },
     cardThumbnail: {
-        flex: 1,
         resizeMode: 'contain',
+        height: 180,
         zIndex: 10,
         alignItems: 'center'
     },
@@ -70,7 +68,7 @@ const classPageStyles = StyleSheet.create({
         right: 28
     },
     syncContainer: {
-        flex: 1,
+        height: 25,
         flexDirection: 'row',
         justifyContent: 'flex-end',
         paddingBottom: 8,

@@ -146,7 +146,6 @@ export const saveVideoLocally = (id, url, imgUrl) => {
                     dispatch(savedVideo(id, getVideoFilePath(id), getImgFilePath(id)));
                 }).catch(() => {
                     dispatch(failedSavedVideo(id));
-                    //todo: dispatch a popup ?
                 });
             }).catch(() => {
                 dispatch(failedSavedVideo(id));

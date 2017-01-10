@@ -61,14 +61,15 @@ class PlaylistCard extends Component {
                     <Text style={[styles.defaultFont, styles.playlistItemDescription]}>{card.description}</Text>
                 </View>
                 <View style={{flex: 0.15, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10}}>
-                    {!card.isLocal && !card.isDownloading &&
-                    <TouchableOpacity onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
-                        <Icon name='download' size={20} color={colors.lightGray}/>
-                    </TouchableOpacity>
+                    {
+                        !card.isLocal && !card.isDownloading &&
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
+                            <Icon name='download' size={20} color={colors.lightGray}/>
+                        </TouchableOpacity>
                     }
                     {
                         card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
                             <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
                         </TouchableOpacity>
                     }

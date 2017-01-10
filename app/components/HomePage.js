@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/Foundation';
 import {
+    Animated,
     Text,
     ScrollView,
     View
@@ -10,9 +11,25 @@ import styles from '../styles/HomePageStyles';
 import colors from '../styles/colors';
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeAnim: new Animated.Value(0),
+        };
+    }
+
+    componentDidMount() {
+        Animated.timing(
+            this.state.fadeAnim,
+            {
+                toValue: 1
+            }
+        ).start();
+    }
+
     render() {
         return (
-            <View style={{flex: 1}}>
+            <Animated.View style={{flex: 1, opacity: this.state.fadeAnim}}>
                 <Toolbar title='360° Pilates Mat'/>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.intro}>
@@ -36,7 +53,7 @@ class HomePage extends Component {
                             Etiam in neque et nulla congue sagittis id et enim.</Text>
                     </View>
                 </ScrollView>
-            </View>
+            </Animated.View>
         );
     }
 }

@@ -37,20 +37,21 @@ class ClassCard extends Component {
                     <Text style={[styles.defaultFont, styles.cardDescription]}>{card.description}</Text>
                 </View>
                 <View style={styles.syncContainer}>
-                    {!card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
+                    {
+                        !card.isLocal && !card.isDownloading &&
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
                             <Icon name='download' size={20} color={colors.lightGray}/>
                         </TouchableOpacity>
                     }
                     {
                         card.isLocal && !card.isDownloading &&
-                            <TouchableOpacity onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
-                                <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
-                            </TouchableOpacity>
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
+                            <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
+                        </TouchableOpacity>
                     }
                     {
                         card.isDownloading &&
-                            <Image source={require('../img/progress.gif')} style={{width: 22, height: 22}} />
+                        <Image source={require('../img/progress.gif')} style={{width: 22, height: 22}} />
                     }
                 </View>
                 {

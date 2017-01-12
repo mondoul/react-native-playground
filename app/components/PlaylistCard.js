@@ -16,15 +16,6 @@ class PlaylistCard extends Component {
     render() {
         let { card, offlineSync, hasBottom, isOnline } = this.props;
 
-        let videoUri, imgSource;
-        if (card.isLocal) {
-            videoUri = card.path;
-            imgSource = {uri: 'file://' + card.imgPath};
-        } else {
-            videoUri = card.video;
-            imgSource = {uri: card.thumbnail};
-        }
-
         let containerStyle = [styles.playlistItemContainer];
         if (hasBottom)
             containerStyle.push(styles.playlistItemBottomDivider);
@@ -37,11 +28,11 @@ class PlaylistCard extends Component {
                         <TouchableOpacity
                             onPress={() => this.props.navigator.push({
                                 id: 'VideoPlayer',
-                                video: { src: videoUri, title: card.title },
+                                video: { src: card.videoUri, title: card.title },
                                 sceneConfig: Navigator.SceneConfigs.FloatFromBottom
                             })} style={styles.playlistThumbnailContainer}>
                             <View style={{flex: 1}}>
-                                <Image style={styles.playlistThumbnail} source={ imgSource } >
+                                <Image style={styles.playlistThumbnail} source={{ uri: card.imgUri }} >
                                     <Text style={styles.durationText}>
                                         {getDuration(card.duration)}
                                     </Text>
@@ -60,22 +51,22 @@ class PlaylistCard extends Component {
                     <Text style={[styles.heavyFont, styles.playlistItemOrder]}>{card.title}</Text>
                     <Text style={[styles.defaultFont, styles.playlistItemDescription]}>{card.description}</Text>
                 </View>
-                <View style={{flex: 0.15, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingTop: 10}}>
+                <View style={styles.syncContainer}>
                     {
                         !card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true) }>
                             <Icon name='download' size={20} color={colors.lightGray}/>
                         </TouchableOpacity>
                     }
                     {
                         card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
-                            <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false) }>
+                            <Icon name='check' size={20} color={colors.turquoise} style={styles.synced} />
                         </TouchableOpacity>
                     }
                     {
                         card.isDownloading &&
-                        <Image source={require('../img/progress.gif')} style={{width: 22, height: 22}} />
+                        <Image source={require('../img/progress.gif')} style={styles.progress} />
                     }
                 </View>
             </View>

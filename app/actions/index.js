@@ -132,15 +132,19 @@ const failedRemovedVideo = (videoId) => {
     }
 };
 
-export const saveVideoLocally = (id, url, imgUrl) => {
-    return (dispatch) => {
+export const saveVideoLocally = (id, category) => {
+    return (dispatch, getState) => {
         dispatch(savingVideo(id));
+        let { items } = getState().playlistData[category];
+        const video = items.find(i => i.id === id);
+        let imgUrl = video.thumbnail;
+        let videoUrl = video.download;
         return RNFS.downloadFile({
                 fromUrl: imgUrl,
                 toFile: getImgFilePath(id)
             }).promise.then(() => {
                 RNFS.downloadFile({
-                    fromUrl: url,
+                    fromUrl: videoUrl,
                     toFile: getVideoFilePath(id),
                 }).promise.then(() => {
                     dispatch(savedVideo(id, getVideoFilePath(id), getImgFilePath(id)));

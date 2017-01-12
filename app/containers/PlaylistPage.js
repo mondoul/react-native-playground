@@ -8,20 +8,19 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../styles/PlaylistPageStyles';
-import Toolbar from './Toolbar';
+import Toolbar from '../components/Toolbar';
 import PlaylistCard from '../components/PlaylistCard';
-import { mapLocalDataToCards } from '../utils';
-import { saveVideoLocally, removeLocalVideo } from '../actions';
+import { mapStateToProps, mapDispatchToProps } from '../utils';
 
 class PlaylistPage extends Component {
     
     renderPlaylist() {
         let { description } = this.props.data;
-        let { offlineSync, cards, isOnline } = this.props;
+        let { offlineSync, cards, isOnline, category, title } = this.props;
 
         return (
             <View style={{flex:1}}>
-                <Toolbar title={this.props.title}/>
+                <Toolbar title={title}/>
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.playlistIntro}>
                         <Text style={[styles.defaultFont, styles.introBlock]}>{description}</Text>
@@ -31,7 +30,7 @@ class PlaylistPage extends Component {
                         return (
                             <PlaylistCard key={i} card={card}
                                     hasBottom={hasBottom}
-                                    offlineSync={offlineSync}
+                                    offlineSync={(id, available) => offlineSync(id, category, available)}
                                     isOnline={isOnline}
                                     navigator={this.props.navigator}
                             />
@@ -52,32 +51,12 @@ class PlaylistPage extends Component {
 }
 
 PlaylistPage.propTypes = {
-    dispatch: React.PropTypes.func,
-    data: React.PropTypes.object
-};
-
-const mapStateToProps = (state, ownProps) => {
-    let { localData } = state;
-    let { isOnline } = state.playlistData;
-
-    let { items } = ownProps.data;
-    let cards = mapLocalDataToCards(items, localData);
-
-    return {
-        cards,
-        isOnline
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        offlineSync: (id, available, uri, imgUri) => {
-            if (available)
-                dispatch(saveVideoLocally(id, uri, imgUri));
-            else
-                dispatch(removeLocalVideo(id));
-        }
-    }
+    data: React.PropTypes.object,
+    title: React.PropTypes.string,
+    category: React.PropTypes.string,
+    isOnline: React.PropTypes.bool,
+    cards: React.PropTypes.array,
+    offlineSync: React.PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistPage);

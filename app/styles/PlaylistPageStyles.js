@@ -75,6 +75,20 @@ const playlistPageStyles = StyleSheet.create({
     playlistItemDescription: {
         fontSize: 13,
         paddingRight: 10
+    },
+    syncContainer: {
+        flex: 0.15,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 10
+    },
+    progress: {
+        width: 22,
+        height: 22
+    },
+    synced: {
+        alignSelf: 'center'
     }
 });
 

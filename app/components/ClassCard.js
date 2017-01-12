@@ -17,15 +17,6 @@ class ClassCard extends Component {
 
         let { card, drawBottomDivider, navigator, isOnline, offlineSync } = this.props;
 
-        let videoUri, imgSource;
-        if (card.isLocal) {
-            videoUri = card.path;
-            imgSource = {uri: 'file://' + card.imgPath};
-        } else {
-            videoUri = card.video;
-            imgSource = {uri: card.thumbnail};
-        }
-
         let containerStyle = [styles.cardContainer];
         if (drawBottomDivider)
             containerStyle.push(styles.cardBottomDivider);
@@ -39,19 +30,19 @@ class ClassCard extends Component {
                 <View style={styles.syncContainer}>
                     {
                         !card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true, card.download, card.thumbnail) }>
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, true) }>
                             <Icon name='download' size={20} color={colors.lightGray}/>
                         </TouchableOpacity>
                     }
                     {
                         card.isLocal && !card.isDownloading &&
-                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false, card.download, card.thumbnail) }>
-                            <Icon name='check' size={20} color={colors.turquoise} style={{alignSelf: 'center'}} />
+                        <TouchableOpacity disabled={!isOnline} onPress={ () => offlineSync(card.id, false) }>
+                            <Icon name='check' size={20} color={colors.turquoise} style={styles.synced} />
                         </TouchableOpacity>
                     }
                     {
                         card.isDownloading &&
-                        <Image source={require('../img/progress.gif')} style={{width: 22, height: 22}} />
+                        <Image source={require('../img/progress.gif')} style={styles.progress} />
                     }
                 </View>
                 {
@@ -60,13 +51,13 @@ class ClassCard extends Component {
                         onPress={() => {
                             navigator.push({
                                 id: 'VideoPlayer',
-                                video: {src: videoUri, title: card.title},
+                                video: {src: card.videoUri, title: card.title},
                                 sceneConfig: Navigator.SceneConfigs.FloatFromBottom
                             });
                         }
                         } style={styles.cardThumbnailContainer}>
                         <View style={{flex: 1 }}>
-                            <Image style={styles.cardThumbnail} source={imgSource} >
+                            <Image style={styles.cardThumbnail} source={{uri: card.imgUri}} >
                                 <Text style={styles.durationText}>
                                     { getDuration(card.duration) }
                                 </Text>

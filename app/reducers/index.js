@@ -5,9 +5,9 @@ const playlistData = (state = {
     isFetching: true,
     isOnline: true,
     isError: false,
-    classes: { items:[] },
-    basics: { items:[] },
-    latest: { items:[] }
+    orientation: { items:[] },
+    exercises: { items:[] },
+    sequences: { items:[] }
 }, action) => {
     switch (action.type) {
         case types.REQUEST_PLAYLISTS:
@@ -24,9 +24,9 @@ const playlistData = (state = {
                 return Object.assign({}, state, {
                     isFetching: false,
                     isOnline: action.isOnline,
-                    classes: action.data.playlists.find(p => p.id === '4221859'),
-                    basics: action.data.playlists.find(p => p.id === '4221862'),
-                    latest: action.data.playlists.find(p => p.id === '4221868')
+                    orientation: action.data.playlists.find(p => p.id === '4221859'),
+                    exercises: action.data.playlists.find(p => p.id === '4221862'),
+                    sequences: action.data.playlists.find(p => p.id === '4221868')
                 });
             }
         case types.CONNECTION_STATUS:

@@ -79,6 +79,13 @@ const classPageStyles = StyleSheet.create({
         paddingRight: 5,
         color: colors.darkGray
     },
+    progress: {
+        width: 22,
+        height: 22
+    },
+    synced: {
+        alignSelf: 'center'
+    },
     offlineContainer: {
         flex: 1,
         flexDirection: 'column',

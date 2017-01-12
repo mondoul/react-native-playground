@@ -9,14 +9,13 @@ import { connect } from 'react-redux';
 import styles from '../styles/ClassPageStyles';
 import ClassCard from '../components/ClassCard';
 import Toolbar from '../components/Toolbar';
-import { saveVideoLocally, removeLocalVideo } from '../actions';
-import { mapLocalDataToCards } from '../utils';
+import { mapStateToProps, mapDispatchToProps } from '../utils';
 
 class ClassPage extends Component {
 
     renderClassPage() {
         let { description } = this.props.data;
-        let { cards, isOnline, title, offlineSync } = this.props;
+        let { cards, isOnline, title, offlineSync, category } = this.props;
 
         return (
             <View style={{flex:1}}>
@@ -31,7 +30,7 @@ class ClassPage extends Component {
                         return (
                             <ClassCard key={i} card={card} isOnline={isOnline}
                                        drawBottomDivider={drawBottomDivider}
-                                       offlineSync={offlineSync}
+                                       offlineSync={(id, available) => offlineSync(id, category, available)}
                                        navigator={this.props.navigator}/>
                         );
                     }) }
@@ -50,35 +49,12 @@ class ClassPage extends Component {
 }
 
 ClassPage.propTypes = {
-    dispatch: React.PropTypes.func,
     data: React.PropTypes.object,
+    title: React.PropTypes.string,
+    category: React.PropTypes.string,
     isOnline: React.PropTypes.bool,
     cards: React.PropTypes.array,
-    onStartDownload: React.PropTypes.func
-};
-
-const mapStateToProps = (state, ownProps) => {
-    let { localData } = state;
-    let { isOnline } = state.playlistData;
-
-    let { items } = ownProps.data;
-    let cards = mapLocalDataToCards(items, localData);
-
-    return {
-        cards,
-        isOnline
-    }
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        offlineSync: (id, available, uri, imgUri) => {
-            if (available)
-                dispatch(saveVideoLocally(id, uri, imgUri));
-            else
-                dispatch(removeLocalVideo(id));
-        }
-    }
+    offlineSync: React.PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassPage);

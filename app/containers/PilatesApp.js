@@ -14,8 +14,8 @@ import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
 import HomePage from '../components/HomePage';
-import ClassPage from '../containers/ClassPage';
-import PlaylistPage from '../components/PlaylistPage';
+import ClassPage from './ClassPage';
+import PlaylistPage from './PlaylistPage';
 import InfoPage from '../components/InfoPage';
 import TabBar from '../components/TabBar';
 import { connect } from 'react-redux';
@@ -85,16 +85,16 @@ class PilatesApp extends Component {
 
     renderScene(route, navigator) {
         let routeId = route.id;
-        let { classes, basics, latest } = this.props;
+        let { orientation, exercises, sequences } = this.props;
         switch (routeId) {
             case 'HomePage':
                 Orientation.lockToPortrait();
                 return (
                     <ScrollableTabView tabBarPosition='bottom' prerenderingSiblingsNumber={1} renderTabBar={ () => <TabBar /> } >
                         <HomePage tabLabel='home' key='home'/>
-                        <ClassPage navigator={navigator} tabLabel='compass' key='classes' title='Orientation' data={classes} />
-                        <PlaylistPage navigator={navigator} tabLabel='list-thumbnails' key='assignments' title='Exercises' data={basics} />
-                        <PlaylistPage navigator={navigator} tabLabel='play-circle' key='videos' title='Sequences' data={latest} />
+                        <ClassPage navigator={navigator} tabLabel='compass' key='orientation' title='Orientation' data={orientation} category='orientation'/>
+                        <PlaylistPage navigator={navigator} tabLabel='list-thumbnails' key='exercises' title='Exercises' data={exercises} category='exercises' />
+                        <PlaylistPage navigator={navigator} tabLabel='play-circle' key='sequences' title='Sequences' data={sequences} category='sequences' />
                         <InfoPage navigator={navigator} tabLabel='info' key='about' title='About 360° Pilates'/>
                     </ScrollableTabView>
                 );
@@ -116,17 +116,17 @@ class PilatesApp extends Component {
 
 PilatesApp.propTypes = {
     dispatch: React.PropTypes.func,
-    classes: React.PropTypes.object,
-    basics: React.PropTypes.object,
-    latest: React.PropTypes.object,
+    orientation: React.PropTypes.object,
+    exercises: React.PropTypes.object,
+    sequences: React.PropTypes.object,
     isError: React.PropTypes.bool,
     isFetching: React.PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
-    let { classes, basics, latest, isFetching, isError } = state.playlistData;
+    let { orientation, exercises, sequences, isFetching, isError } = state.playlistData;
     return {
-        classes, basics, latest, isFetching, isError
+        orientation, exercises, sequences, isFetching, isError
     };
 };
 

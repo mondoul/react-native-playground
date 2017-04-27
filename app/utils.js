@@ -1,13 +1,22 @@
-import { Platform } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 import { saveVideoLocally, removeLocalVideo } from './actions';
 
 const str_pad_left = (string,pad,length) => {
     return (new Array(length+1).join(pad)+string).slice(-length);
 };
 
+const IS_ANDROID = Platform.OS === 'android';
+const { height, width } = Dimensions.get('window');
+
+export const metrics = {
+    ANDROID_STATUSBAR: 24,
+    DEVICE_HEIGHT: IS_ANDROID ? height - 24 : height,
+    DEVICE_WIDTH: width
+};
+
 export function getDuration(time) {
-    var minutes = Math.floor(time / 60);
-    var seconds = time - minutes * 60;
+    const minutes = Math.floor(time / 60);
+    const seconds = time - minutes * 60;
     return str_pad_left(minutes,'0',2) + ':' + str_pad_left(seconds,'0',2);
 }
 

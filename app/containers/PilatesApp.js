@@ -13,13 +13,14 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
+import fonts from '../styles/fonts';
 import HomePage from '../components/HomePage';
 import ClassPage from './ClassPage';
 import PlaylistPage from './PlaylistPage';
 import InfoPage from '../components/InfoPage';
 import TabBar from '../components/TabBar';
 import { connect } from 'react-redux';
-import { fetchPlaylists, fetchLocalVideos, checkConnectivityStatus, connectionStatus } from '../actions';
+import { fetchPlaylists, fetchLocalVideos, checkConnectivityStatus, connectionStatus, removeLocalVideo } from '../actions';
 
 class PilatesApp extends Component {
 
@@ -58,7 +59,7 @@ class PilatesApp extends Component {
             return (
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
                     <Spinner visible={isError} textStyle={{color: colors.white}} overlayColor={colors.turquoise} >
-                        <Text style={[styles.heavyFont, {color: colors.white}]}>There was a error initializing the application data. Please try again.</Text>
+                        <Text style={[fonts.heavyFont, {color: colors.white}]}>There was a error initializing the application data. Please try again.</Text>
                     </Spinner>
                 </View>
             )
@@ -100,12 +101,17 @@ class PilatesApp extends Component {
                 );
             case 'VideoPlayer':
                 Orientation.unlockAllOrientations();
+
                 return (
                     <VideoPlayer navigator={navigator}
                                  source={{uri: route.video.src}}
                                  title={route.video.title}
                                  videoStyle={{backgroundColor: '#000'}}
-                                 controlTimeout={ 3000 }/>
+                                 controlTimeout={ 3000 }
+                    onError={() => {
+                        this.props.dispatch(removeLocalVideo(route.video.id));
+                        navigator.pop();
+                    }}/>
                 );
             default:
                 console.warn('Unknown route', route, navigator);
@@ -125,6 +131,7 @@ PilatesApp.propTypes = {
 
 const mapStateToProps = (state) => {
     let { orientation, exercises, sequences, isFetching, isError } = state.playlistData;
+    console.log('IsFetching', isFetching);
     return {
         orientation, exercises, sequences, isFetching, isError
     };

@@ -4,6 +4,7 @@ import {
 
 import colors from './colors';
 import fonts from './fonts';
+import { metrics } from '../utils';
 
 const playlistPageStyles = StyleSheet.create({
     ...fonts,
@@ -23,6 +24,9 @@ const playlistPageStyles = StyleSheet.create({
         paddingRight: 15,
         paddingBottom: 20,
     },
+    playlistImageWrapper: {
+        flex: 1.13
+    },
     playlistItemContainer: {
         flexDirection: 'row',
         marginLeft: 10,
@@ -36,7 +40,8 @@ const playlistPageStyles = StyleSheet.create({
     },
     playlistThumbnailContainer: {
         flex: 1,
-        height: 80
+        height: 80,
+        paddingRight: 5
     },
     offlineContainer: {
         flex: 1,
@@ -48,7 +53,7 @@ const playlistPageStyles = StyleSheet.create({
     },
     playlistThumbnail: {
         flex: 1,
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         zIndex: 10,
         position: 'relative'
     },
@@ -64,7 +69,7 @@ const playlistPageStyles = StyleSheet.create({
     },
     playlistItemWrapper: {
         flex:1.5,
-        paddingLeft: 10,
+        marginLeft: 20,
         alignSelf: 'flex-start'
     },
     playlistItemOrder: {

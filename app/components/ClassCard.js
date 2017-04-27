@@ -51,7 +51,7 @@ class ClassCard extends Component {
                         onPress={() => {
                             navigator.push({
                                 id: 'VideoPlayer',
-                                video: {src: card.videoUri, title: card.title},
+                                video: {src: card.videoUri, title: card.title, id: card.id},
                                 sceneConfig: Navigator.SceneConfigs.FloatFromBottom
                             });
                         }

@@ -7,10 +7,13 @@ import {
     ScrollView,
     Navigator
 } from 'react-native';
-import { getDuration } from '../utils';
+import { getDuration, metrics } from '../utils';
 import colors from '../styles/colors';
 import Icon from 'react-native-vector-icons/Foundation';
 import styles from '../styles/PlaylistPageStyles';
+import ScaledImage from './ScaledImage';
+
+const IMAGE_WIDTH = ((metrics.DEVICE_WIDTH / 3) * 1.13) - 5;
 
 class PlaylistCard extends Component {
     render() {
@@ -22,22 +25,20 @@ class PlaylistCard extends Component {
 
         return (
             <View style={containerStyle} key={card.order}>
-                <View style={{flex: 1 }}>
+                <View style={styles.playlistImageWrapper}>
                     {
                         (isOnline || card.isLocal) &&
                         <TouchableOpacity
                             onPress={() => this.props.navigator.push({
                                 id: 'VideoPlayer',
-                                video: { src: card.videoUri, title: card.title },
+                                video: { src: card.videoUri, title: card.title, id: card.id },
                                 sceneConfig: Navigator.SceneConfigs.FloatFromBottom
                             })} style={styles.playlistThumbnailContainer}>
-                            <View style={{flex: 1}}>
-                                <Image style={styles.playlistThumbnail} source={{ uri: card.imgUri }} >
+                                <ScaledImage style={styles.playlistThumbnail} width={IMAGE_WIDTH} source={{ uri: card.imgUri }} >
                                     <Text style={styles.durationText}>
                                         {getDuration(card.duration)}
                                     </Text>
-                                </Image>
-                            </View>
+                                </ScaledImage>
                         </TouchableOpacity>
                     }
                     {

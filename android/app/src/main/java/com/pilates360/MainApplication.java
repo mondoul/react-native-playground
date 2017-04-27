@@ -7,6 +7,7 @@ import com.facebook.react.ReactApplication;
 import com.rnfs.RNFSPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.github.yamill.orientation.OrientationPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -30,7 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RNFSPackage(),
             new ReactVideoPackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new OrientationPackage()
       );
     }
   };

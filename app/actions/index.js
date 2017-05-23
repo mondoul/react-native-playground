@@ -3,6 +3,7 @@ import RNFS from 'react-native-fs';
 
 const playlistLocalStorageKey = 'Playlists';
 const basePath = RNFS.DocumentDirectoryPath;
+const playlistServiceURL = 'https://threesixty-pilates-mat.herokuapp.com/playlists';
 
 const getVideoFilePath = (videoId) => {
     return `${basePath}/${videoId}.mp4`;
@@ -67,7 +68,7 @@ const receivePlaylists = (data, error = false, isOnline = true) => {
 export const fetchPlaylists = () => {
     return (dispatch) => {
         dispatch(requestPlaylists());
-        return fetch('https://pilates-playlist.herokuapp.com/playlists')
+        return fetch(playlistServiceURL)
             .then((response) => { return response.json(); })
             .then(json => {
                 if (json.playlists.length > 0) {

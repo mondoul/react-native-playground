@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Navigator } from 'react-native-deprecated-custom-components';
 import {
-    Navigator,
     View,
     Image,
     Text,
@@ -121,12 +122,12 @@ class PilatesApp extends Component {
 }
 
 PilatesApp.propTypes = {
-    dispatch: React.PropTypes.func,
-    orientation: React.PropTypes.object,
-    exercises: React.PropTypes.object,
-    sequences: React.PropTypes.object,
-    isError: React.PropTypes.bool,
-    isFetching: React.PropTypes.bool
+    dispatch: PropTypes.func,
+    orientation: PropTypes.object,
+    exercises: PropTypes.object,
+    sequences: PropTypes.object,
+    isError: PropTypes.bool,
+    isFetching: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {

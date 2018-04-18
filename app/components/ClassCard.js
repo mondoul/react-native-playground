@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
     TouchableOpacity,
-    Image,
-    Navigator
+    ImageBackground
 } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components';
 import { getDuration } from '../utils';
 import Icon from 'react-native-vector-icons/Foundation';
 import styles from '../styles/ClassPageStyles';
@@ -57,11 +58,11 @@ class ClassCard extends Component {
                         }
                         } style={styles.cardThumbnailContainer}>
                         <View style={{flex: 1 }}>
-                            <Image style={styles.cardThumbnail} source={{uri: card.imgUri}} >
+                            <ImageBackground style={styles.cardThumbnail} source={{uri: card.imgUri}} >
                                 <Text style={styles.durationText}>
                                     { getDuration(card.duration) }
                                 </Text>
-                            </Image>
+                            </ImageBackground>
                         </View>
                     </TouchableOpacity>
                 }
@@ -81,11 +82,11 @@ class ClassCard extends Component {
 }
 
 ClassCard.propTypes = {
-    card: React.PropTypes.object,
-    drawBottomDivider: React.PropTypes.bool,
-    navigator: React.PropTypes.any,
-    isOnline: React.PropTypes.bool,
-    offlineSync: React.PropTypes.func
+    card: PropTypes.object,
+    drawBottomDivider: PropTypes.bool,
+    navigator: PropTypes.any,
+    isOnline: PropTypes.bool,
+    offlineSync: PropTypes.func
 };
 
 export default ClassCard;

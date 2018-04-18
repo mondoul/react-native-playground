@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
@@ -19,7 +20,7 @@ class Toolbar extends Component {
 }
 
 Toolbar.propTypes = {
-    title: React.PropTypes.string
+    title: PropTypes.string
 };
 
 export default Toolbar;

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
-    ScrollView,
-    Navigator
+    ScrollView
 } from 'react-native';
+import { Navigator } from 'react-native-deprecated-custom-components';
 import { connect } from 'react-redux';
 import styles from '../styles/ClassPageStyles';
 import ClassCard from '../components/ClassCard';
@@ -49,12 +50,12 @@ class ClassPage extends Component {
 }
 
 ClassPage.propTypes = {
-    data: React.PropTypes.object,
-    title: React.PropTypes.string,
-    category: React.PropTypes.string,
-    isOnline: React.PropTypes.bool,
-    cards: React.PropTypes.array,
-    offlineSync: React.PropTypes.func,
+    data: PropTypes.object,
+    title: PropTypes.string,
+    category: PropTypes.string,
+    isOnline: PropTypes.bool,
+    cards: PropTypes.array,
+    offlineSync: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassPage);

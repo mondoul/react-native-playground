@@ -4,7 +4,6 @@ import {
     Text,
     TouchableOpacity,
     Image,
-    ScrollView,
     Navigator
 } from 'react-native';
 import { getDuration, metrics } from '../utils';

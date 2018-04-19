@@ -1,4 +1,4 @@
-const fonts = {
+export default fonts = {
     defaultFont: {
         fontFamily: 'Lato-Regular'
     },
@@ -7,5 +7,3 @@ const fonts = {
         fontSize: 20
     }
 };
-
-export default fonts;

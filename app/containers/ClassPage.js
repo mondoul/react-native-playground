@@ -8,7 +8,7 @@ import {
 import { Navigator } from 'react-native-deprecated-custom-components';
 import { connect } from 'react-redux';
 import styles from '../styles/ClassPageStyles';
-import ClassCard from '../components/ClassCard';
+import ClassCard from '../components/classCard';
 import Toolbar from '../components/Toolbar';
 import { mapStateToProps, mapDispatchToProps } from '../utils';
 

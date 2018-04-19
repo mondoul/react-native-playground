@@ -1,11 +1,11 @@
 const colors = {
-    turquoise: 'rgba(77, 214, 202, 1)',
-    lightGray: 'rgba(198, 205, 206, 1)',
-    lighterGray: 'rgba(198, 205, 206, 0.3)',
-    darkGray: 'rgba(99, 108, 129, 1)',
-    white: 'rgba(255, 255, 255, 1)',
-    blue: 'rgba(88, 107, 164, 1)',
-    darkerGray: 'rgba(54, 54, 54, 1)',
+    turquoise: '#4dd6ca',
+    lightGray: '#c6cdce',
+    lighterGray: '#dde4e5',
+    darkGray: '#636c81',
+    darkerGray: '#363636',
+    white: '#ffffff',
+    blue: '#586ba4',
 
 };
 

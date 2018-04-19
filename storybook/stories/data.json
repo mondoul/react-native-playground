@@ -1,0 +1,623 @@
+{
+  "updated": 1524148204066,
+  "playlists": [
+    {
+      "name": "360° Reformer",
+      "description": null,
+      "id": "5091789",
+      "items": [
+        {
+          "order": 1,
+          "id": "262992718",
+          "title": "ref123 Russian Squat",
+          "description": "this is the description for the Russian Squat",
+          "video": "https://player.vimeo.com/external/262992718.m3u8?s=59857ef9e356cd6b87cd14ec2918cb408e2b6551&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969933077?s=262992718_1524191398_427f5328aa584424d80e24f29f2ca19d&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref123%2BRussian%2BSquat174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695402780_640x360.jpg?r=pad",
+          "duration": 49
+        },
+        {
+          "order": 2,
+          "id": "262992673",
+          "title": "ref121 Control Balance Side 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992673.m3u8?s=99ab831f70a62a380434f5c2bc808bd828f20626&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969975357?s=262992673_1524191399_b34b89da0a15b3f0359436db06a5b615&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref121%2BControl%2BBalance%2BSide%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695402805_640x360.jpg?r=pad",
+          "duration": 19
+        },
+        {
+          "order": 3,
+          "id": "262992638",
+          "title": "ref120 Control Balance Side 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992638.m3u8?s=14c947bf7a343db0a75cbd62cf6e64376b41df6d&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969932563?s=262992638_1524191399_aa83079011578a93570af1e969b3bf00&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref120%2BControl%2BBalance%2BSide%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695402836_640x360.jpg?r=pad",
+          "duration": 19
+        },
+        {
+          "order": 4,
+          "id": "262992606",
+          "title": "ref119 Balance Control Back 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992606.m3u8?s=46cce539c6528c924753ca3c158661aa007760a9&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969932490?s=262992606_1524191399_5ffb474fa1fd42e742d9c3ab081d1b68&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref119%2BBalance%2BControl%2BBack%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695402858_640x360.jpg?r=pad",
+          "duration": 20
+        },
+        {
+          "order": 5,
+          "id": "262992580",
+          "title": "ref118 Balance Control Front 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992580.m3u8?s=e56a4dee5cc108c8961274142b43eea78b15ec53&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969959088?s=262992580_1524191399_c4e82ed1325c549c75d1e181ff95c1a7&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref118%2BBalance%2BControl%2BFront%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695402891_640x360.jpg?r=pad",
+          "duration": 21
+        },
+        {
+          "order": 6,
+          "id": "262992578",
+          "title": "ref115 Russian Split 3.mp4",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992578.m3u8?s=ec76ce92db0422d7a82384ffaaea44673ceb4ed5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969932196?s=262992578_1524191399_c679b7d0070547cf23f3b3d282682ac9&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref115%2BRussian%2BSplit%2B3.mp4174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410698_640x360.jpg?r=pad",
+          "duration": 23
+        },
+        {
+          "order": 7,
+          "id": "262992493",
+          "title": "ref114 Russian Split 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992493.m3u8?s=13cf6a5ffa4ce32e4e9563a808fba784dadb9be3&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969931892?s=262992493_1524191400_d5e351bb21aab6df96cb3aafbcb68920&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref114%2BRussian%2BSplit%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410671_640x360.jpg?r=pad",
+          "duration": 14
+        },
+        {
+          "order": 8,
+          "id": "262992466",
+          "title": "ref112 Side Split",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992466.m3u8?s=61c5a054bcb13ff4e0fe0d8df24ed0f0aa529fd2&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969931638?s=262992466_1524191400_da884ed3111d74e8b09f580407c790d2&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref112%2BSide%2BSplit174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410638_640x360.jpg?r=pad",
+          "duration": 31
+        },
+        {
+          "order": 9,
+          "id": "262992459",
+          "title": "ref113 Russian Split 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992459.m3u8?s=93c3dddd588509c448db564fc6cd3c84de2e37e4&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969940229?s=262992459_1524191400_aa5dcd52d2033d5b07cfb217583d85fc&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref113%2BRussian%2BSplit%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410654_640x360.jpg?r=pad",
+          "duration": 15
+        },
+        {
+          "order": 10,
+          "id": "262992380",
+          "title": "ref111 Front Split 3",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992380.m3u8?s=6bc1911835d9c0c0d34f71b87e2725a01a8d34e6&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969931350?s=262992380_1524191400_ba9aa88c90f199709861e6a80ab6da31&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref111%2BFront%2BSplit%2B3174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410606_640x360.jpg?r=pad",
+          "duration": 31
+        },
+        {
+          "order": 11,
+          "id": "262992342",
+          "title": "ref110 Front Split 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992342.m3u8?s=2b94f0a0a662c7e0b10a64567b38991abd08a906&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969931394?s=262992342_1524191400_769b2c8ef68d8fa0e35a98e333d2d983&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref110%2BFront%2BSplit%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410571_640x360.jpg?r=pad",
+          "duration": 18
+        },
+        {
+          "order": 12,
+          "id": "262992311",
+          "title": "ref109 Front Split 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992311.m3u8?s=5583eac5d2d6184672c3ec1e9d0208fd6fbdb9d5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969930794?s=262992311_1524191401_6768cfc563609054c83f665eae56db81&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref109%2BFront%2BSplit%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410551_640x360.jpg?r=pad",
+          "duration": 21
+        },
+        {
+          "order": 13,
+          "id": "262992299",
+          "title": "ref108 Pelvic Lift",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992299.m3u8?s=bd990ea84ce3bddbcf6e7f0a1bbb737cb2117bc0&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969930766?s=262992299_1524191401_99d7086f5423b5389548599d10e97363&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref108%2BPelvic%2BLift174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410531_640x360.jpg?r=pad",
+          "duration": 30
+        },
+        {
+          "order": 14,
+          "id": "262992209",
+          "title": "ref107 Running",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992209.m3u8?s=249e12cd95fb8016496e4dbb9f11bda2261ba390&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969930489?s=262992209_1524191401_66f8caa9b9e53e1500be5bcacc3e6433&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref107%2BRunning174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410491_640x360.jpg?r=pad",
+          "duration": 20
+        },
+        {
+          "order": 15,
+          "id": "262992203",
+          "title": "ref101 Side Stretch Mermaid 2.mp4",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992203.m3u8?s=8a3f72bca9c67d9a43e2da161fcf8c92a34fa62b&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969930397?s=262992203_1524191401_e86b03e9d8dae57695a8f57c4e155fad&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref101%2BSide%2BStretch%2BMermaid%2B2.mp4174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410258_640x360.jpg?r=pad",
+          "duration": 34
+        },
+        {
+          "order": 16,
+          "id": "262992132",
+          "title": "ref100 Side Stretch Mermaid 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992132.m3u8?s=6e71fccdb0444c6d98a6c86ec4170e4acb0b63e0&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969930112?s=262992132_1524191401_4e409c5ec9b862ed44fbffe16b175b2d&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref100%2BSide%2BStretch%2BMermaid%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410241_640x360.jpg?r=pad",
+          "duration": 35
+        },
+        {
+          "order": 17,
+          "id": "262992088",
+          "title": "ref098 Long Spine Massage 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992088.m3u8?s=694b159e60919d75c7d873281b70b157344fdc8f&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969929847?s=262992088_1524191402_a9f71753eb00d055fd0237c7f6936aab&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref098%2BLong%2BSpine%2BMassage%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410223_640x360.jpg?r=pad",
+          "duration": 55
+        },
+        {
+          "order": 18,
+          "id": "262992031",
+          "title": "ref097 Long Spine Massage 1.mp4",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262992031.m3u8?s=285100a45ad9caacf3824f2c9ba4c4ba569e7914&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969929807?s=262992031_1524191402_9658474f60e87e8682fff8362e947b69&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref097%2BLong%2BSpine%2BMassage%2B1.mp4174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410196_640x360.jpg?r=pad",
+          "duration": 45
+        },
+        {
+          "order": 19,
+          "id": "262991958",
+          "title": "ref096 Leg Circles.mp4",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991958.m3u8?s=5b19fd1cfb911842ba685716590f11c9a7947b91&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969929237?s=262991958_1524191402_2a20755426b8ddf0d0f830975921c3f3&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref096%2BLeg%2BCircles.mp4174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410186_640x360.jpg?r=pad",
+          "duration": 41
+        },
+        {
+          "order": 20,
+          "id": "262991930",
+          "title": "ref095 Frog.mp4",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991930.m3u8?s=edd257e8dd0028d33b453c6d4283edfe201879f1&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969929172?s=262991930_1524191402_3984e3e16e08798d2ccf636d1f907673&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref095%2BFrog.mp4174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695410166_640x360.jpg?r=pad",
+          "duration": 21
+        },
+        {
+          "order": 21,
+          "id": "262991860",
+          "title": "ref092 SB Around the world 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991860.m3u8?s=82c7db5338cc84d5f269898855fc7954756319be&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969928852?s=262991860_1524191402_1a8e57efc17982a17f42ef482cdf5edb&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref092%2BSB%2BAround%2Bthe%2Bworld%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695409886_640x360.jpg?r=pad",
+          "duration": 49
+        },
+        {
+          "order": 22,
+          "id": "262991815",
+          "title": "ref091 SB Around the world 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991815.m3u8?s=3bc1474c4aef4d28db7ca827cafffd893a1ca770&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969928761?s=262991815_1524191403_a30975cd8ccbf4a14f6ff67a0b627e3c&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref091%2BSB%2BAround%2Bthe%2Bworld%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695409845_640x360.jpg?r=pad",
+          "duration": 44
+        },
+        {
+          "order": 23,
+          "id": "262991749",
+          "title": "ref090 SB Twist and Reach 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991749.m3u8?s=df4c7ff34c7bac176f79a370ab56c41ea8bc71f4&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969928217?s=262991749_1524191403_c7f3d92f9acd23c3d1a6bd3fa3192bf4&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref090%2BSB%2BTwist%2Band%2BReach%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695409795_640x360.jpg?r=pad",
+          "duration": 38
+        },
+        {
+          "order": 24,
+          "id": "262991706",
+          "title": "ref089 SB Twist and Reach 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991706.m3u8?s=fecb1f80dfdfca85c8000fee0a11a1a3c7ac3281&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969927874?s=262991706_1524191403_7c7efdbede75d7ec89c5f2bdd3769eef&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref089%2BSB%2BTwist%2Band%2BReach%2B1174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695409767_640x360.jpg?r=pad",
+          "duration": 42
+        },
+        {
+          "order": 25,
+          "id": "262991669",
+          "title": "ref088 SB Side to Side 2",
+          "description": null,
+          "video": "https://player.vimeo.com/external/262991669.m3u8?s=217bcd3efda31b9fabd2987966e14f2aedecd6f5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/969927612?s=262991669_1524191403_3003b157db10c8bf60298ddcaa5fb8a8&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=ref088%2BSB%2BSide%2Bto%2BSide%2B2174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695409706_640x360.jpg?r=pad",
+          "duration": 26
+        }
+      ]
+    },
+    {
+      "name": "App Playlist #3",
+      "description": "It's time to start practicing — the sequences below are listed in order of difficulty and include short, restorative sessions as well as challenging workouts.",
+      "id": "4221868",
+      "items": [
+        {
+          "order": 1,
+          "id": "159274221",
+          "title": "Cadillac Canopy Side Pull Up",
+          "description": "Start here — if you are new to practicing Pilates, this short sequence covers all the basics.",
+          "video": "https://player.vimeo.com/external/159274221.m3u8?s=d9f5d1ec5c5d5b1de8c09072258a70f85e5b6890&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498752396?s=159274221_1524191398_4813af597b33e35616ca94436d4dfb25&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BSide%2BPull%2BUp113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/561008199_640x360.jpg?r=pad",
+          "duration": 66
+        },
+        {
+          "order": 2,
+          "id": "159274218",
+          "title": "Cadillac Canopy Side Pull Up One Leg",
+          "description": "This sequence emphasizes stretches and extensions — a great way to start the day when time is short.",
+          "video": "https://player.vimeo.com/external/159274218.m3u8?s=d40ef011badd584fee51eeac9b618ca60821aeef&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498751631?s=159274218_1524191398_3a4b17b56869aae675258eeb3371ae9d&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BSide%2BPull%2BUp%2BOne%2BLeg113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/561008236_640x360.jpg?r=pad",
+          "duration": 61
+        },
+        {
+          "order": 3,
+          "id": "159274215",
+          "title": "Cadillac Canopy German Hang 2",
+          "description": "Practice this sequence to get introduced to safe and simple inversions for improved circulation.",
+          "video": "https://player.vimeo.com/external/159274215.m3u8?s=0bd52c1bdd4ca54c728b725d6332ff4210f27507&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498751096?s=159274215_1524191398_e9a939093a3f1a3344b198dcfb2b4284&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BGerman%2BHang%2B2113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/561008315_640x360.jpg?r=pad",
+          "duration": 57
+        },
+        {
+          "order": 4,
+          "id": "159274214",
+          "title": "Cadillac Canopy German Hang 1",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159274214.m3u8?s=83f28e85834800860526f89c2a6e4b201509585c&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498741975?s=159274214_1524191399_0f6c346897bc1017f5d00d54143b13d4&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BGerman%2BHang%2B1113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560988233_640x360.jpg?r=pad",
+          "duration": 41
+        },
+        {
+          "order": 5,
+          "id": "159271113",
+          "title": "Cadillac Canopy Walkover",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159271113.m3u8?s=f5d34a072b7424265cbe8725589240f3d0e02319&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498715031?s=159271113_1524191399_61ee50c1016d3b8a3458bb4a3945e5f4&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BWalkover113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560979767_640x360.jpg?r=pad",
+          "duration": 76
+        },
+        {
+          "order": 6,
+          "id": "159264190",
+          "title": "Cadillac Canopy Pike",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159264190.m3u8?s=f853bfe695e435634c3390aa64d292a018cd4005&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498688376?s=159264190_1524191399_7f6f5905db62f7a20088a8fa22863857&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BPike113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560972654_640x360.jpg?r=pad",
+          "duration": 30
+        },
+        {
+          "order": 7,
+          "id": "159264189",
+          "title": "Cadillac Canopy Candlestick",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159264189.m3u8?s=5d59bb611af75093ecc068002d582a1403301a1d&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498692834?s=159264189_1524191399_566012d790d7c2646affdbbdfb86b684&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BCandlestick113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560973978_640x360.jpg?r=pad",
+          "duration": 43
+        },
+        {
+          "order": 8,
+          "id": "159264188",
+          "title": "Cadillac Canopy Pike Prep",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159264188.m3u8?s=31ae03c9ef0a8ddeb092490152093c9e00c739fa&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498683238?s=159264188_1524191399_a6a073c698bbca6b91fc60c7b6eb4b0d&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BPike%2BPrep113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560972735_640x360.jpg?r=pad",
+          "duration": 21
+        },
+        {
+          "order": 9,
+          "id": "159264187",
+          "title": "Cadillac Canopy Candlestick Scissors",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159264187.m3u8?s=027ab32f9c8a53542cbc7a5f094e22d7d5f4735b&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498696146?s=159264187_1524191399_c5017f5fb52263aea896267aff793da5&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BCandlestick%2BScissors113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560974783_640x360.jpg?r=pad",
+          "duration": 61
+        },
+        {
+          "order": 10,
+          "id": "159258472",
+          "title": "Cadillac Canopy Hanging Pull Up Reverse",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159258472.m3u8?s=a2afb38b886d7de0163b18202edf4f98c2de0ea5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498663518?s=159258472_1524191399_b0d9ae5f8a26ca3c9838229137b568f3&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BHanging%2BPull%2BUp%2BReverse113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560966237_640x360.jpg?r=pad",
+          "duration": 77
+        },
+        {
+          "order": 11,
+          "id": "159258468",
+          "title": "Cadillac Canopy Hanging Pull Up Reverse (short)",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159258468.m3u8?s=967cec78e931a59dd216bcbdc074ca135b091c50&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498656375?s=159258468_1524191399_cd353ba4f4ec2e24117ce4e4cefe9a5a&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BHanging%2BPull%2BUp%2BReverse%2B%2528short%2529113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/586454562_640x360.jpg?r=pad",
+          "duration": 39
+        },
+        {
+          "order": 12,
+          "id": "159128845",
+          "title": "cad076 Spread Eagle",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159128845.m3u8?s=2b71c2859b6b4d5f1af1cf97f2efc3e35f429543&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498134947?s=159128845_1524191400_e2cc5ae4ae6ce278c53fafaf0d1cc46e&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=cad076%2BSpread%2BEagle113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/695493940_640x360.jpg?r=pad",
+          "duration": 58
+        },
+        {
+          "order": 13,
+          "id": "159128844",
+          "title": "Cadillac Canopy Hanging Spread Eagle",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159128844.m3u8?s=05bc64e4f92f40aa4670266a9dd38d55974e5cac&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498134412?s=159128844_1524191400_4ad2d29f4c22c84b39fdfefa6f8006ac&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BHanging%2BSpread%2BEagle113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560958861_640x360.jpg?r=pad",
+          "duration": 55
+        },
+        {
+          "order": 14,
+          "id": "159128841",
+          "title": "Cadillac Canopy Hanging Pull Up",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159128841.m3u8?s=731d6acf43acf79e94e6ca6e34e65c23f91638b2&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498133582?s=159128841_1524191400_4bc5f530bcab89c89ce0f66befb7d2b7&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BHanging%2BPull%2BUp113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560958929_640x360.jpg?r=pad",
+          "duration": 50
+        },
+        {
+          "order": 15,
+          "id": "159128840",
+          "title": "Cadillac Canopy Hanging Pull Up (short)",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159128840.m3u8?s=598acb8d6c6172c7b14a5acea51c6fd1c6df04da&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498118362?s=159128840_1524191400_a4e8d873ae04bdf7a2c670fc6a50de60&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BCanopy%2BHanging%2BPull%2BUp%2B%2528short%2529113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560813951_640x360.jpg?r=pad",
+          "duration": 32
+        },
+        {
+          "order": 16,
+          "id": "159128839",
+          "title": "Cadillac Breathing",
+          "description": null,
+          "video": "https://player.vimeo.com/external/159128839.m3u8?s=4d84528d975bb5182952f4b5d7bf8dd4aa81449c&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/498124991?s=159128839_1524191400_67731c9466fb7eca9ac200344a091486&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Cadillac%2BBreathing113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/560814309_640x360.jpg?r=pad",
+          "duration": 32
+        }
+      ]
+    },
+    {
+      "name": "App Playlist #2",
+      "description": "Learn the original Mat work, exercise by exercise. Watch the tutorials for detailed breakdowns of the choreography, the exercise's intention, and available modifications.",
+      "id": "4221862",
+      "items": [
+        {
+          "order": 1,
+          "id": "149922636",
+          "title": "3. The Roll Over",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149922636.m3u8?s=d52ad535f85ebe75b6a434557ac1c4dc4269b0b5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457579120?s=149922636_1524191398_05df28740b7d5be03ae1944a94e1d066&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=3.%2BThe%2BRoll%2BOver113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549266643_640x360.jpg?r=pad",
+          "duration": 48
+        },
+        {
+          "order": 2,
+          "id": "149916962",
+          "title": "2. The Roll Up",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149916962.m3u8?s=db82d33c9204ae71982d9d24e664ac9522917bff&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457551510?s=149916962_1524191398_0ba5cfa7e96261679240ecdce405f72a&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=2.%2BThe%2BRoll%2BUp113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/555407776_640x360.jpg?r=pad",
+          "duration": 33
+        },
+        {
+          "order": 3,
+          "id": "149911335",
+          "title": "8. The Spine Stretch",
+          "description": "Blabla yada yada. Blabla yada yada. Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149911335.m3u8?s=3534dc4254588c5495071055fcb04ac940ba0926&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457524787?s=149911335_1524191398_f78898a1810dd12ecbde360d956bc5d9&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=8.%2BThe%2BSpine%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/611637651_640x360.jpg?r=pad",
+          "duration": 25
+        },
+        {
+          "order": 4,
+          "id": "149910167",
+          "title": "6. One Leg Stretch",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149910167.m3u8?s=32de621b4b817e1c3c8904632abd8add771351a5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457520075?s=149910167_1524191399_907558e9ae7348c8ed21d73d54597ddd&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=6.%2BOne%2BLeg%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549257733_640x360.jpg?r=pad",
+          "duration": 19
+        },
+        {
+          "order": 5,
+          "id": "149910166",
+          "title": "7. Double Leg Stretch",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149910166.m3u8?s=ede7c9ed6af7bba7131f332f65984cad5cd467b3&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457520775?s=149910166_1524191399_3380b690b9982410a11f306318832f85&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=7.%2BDouble%2BLeg%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549250926_640x360.jpg?r=pad",
+          "duration": 49
+        },
+        {
+          "order": 6,
+          "id": "149909076",
+          "title": "5. Rolling Back",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149909076.m3u8?s=7a751c1841f3c7e9f570f787905461613f547716&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/469779984?s=149909076_1524191399_cd545728655f57b38919f5785dc0ff10&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=5.%2BRolling%2BBack113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549248607_640x360.jpg?r=pad",
+          "duration": 26
+        },
+        {
+          "order": 7,
+          "id": "149907871",
+          "title": "1. The Hundred",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149907871.m3u8?s=0f23ff71f46f50e1611098ae7cd939f49cab0695&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457510934?s=149907871_1524191399_0c80673025e12781d28d076e22f2de0b&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=1.%2BThe%2BHundred113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/555407656_640x360.jpg?r=pad",
+          "duration": 32
+        }
+      ]
+    },
+    {
+      "name": "App Playlist #1",
+      "description": "New to Pilates Mat work? Here are a few things you should know before getting started.",
+      "id": "4221859",
+      "items": [
+        {
+          "order": 1,
+          "id": "170993332",
+          "title": "360 Pilates Promo V3",
+          "description": null,
+          "video": "https://player.vimeo.com/external/170993332.m3u8?s=556f75c0daa4e6d7738cccaa66a28a45dc3a56a2&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/550207625?s=170993332_1524191398_fc61a2622162aaded19f9f8f5aa1ecb3&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=360%2BPilates%2BPromo%2BV3174.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/576270727_640x360.jpg?r=pad",
+          "duration": 74
+        },
+        {
+          "order": 2,
+          "id": "149916420",
+          "title": "Mat Rocker With Open Legs",
+          "description": "Description for Rocker With Open Legs. This could be a rather long description.\nThis comes directly from the video's description in Vimeo. Also, the title and thumbnails are both extracted from the video details. This information is updated dynamically every time the app is opened (that's what the loading screen does)",
+          "video": "https://player.vimeo.com/external/149916420.m3u8?s=05fa71cedeff4064f66f22d951ae7454d535287e&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457548962?s=149916420_1524191398_b3c95de1cf7cf01174d216d1b2eb016d&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Mat%2BRocker%2BWith%2BOpen%2BLegs113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/555408076_640x360.jpg?r=pad",
+          "duration": 34
+        },
+        {
+          "order": 3,
+          "id": "149916138",
+          "title": "Mat Rocker With Open Legs Transition",
+          "description": "Blablabla yada yada.",
+          "video": "https://player.vimeo.com/external/149916138.m3u8?s=cf0104854286043b351e18071f0eddb51e3c0e4c&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457548412?s=149916138_1524191398_1df17fdbac34bdff6889f0eace755a0b&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=Mat%2BRocker%2BWith%2BOpen%2BLegs%2BTransition113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549273466_640x360.jpg?r=pad",
+          "duration": 74
+        },
+        {
+          "order": 4,
+          "id": "149911335",
+          "title": "8. The Spine Stretch",
+          "description": "Blabla yada yada. Blabla yada yada. Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149911335.m3u8?s=3534dc4254588c5495071055fcb04ac940ba0926&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457524787?s=149911335_1524191398_f78898a1810dd12ecbde360d956bc5d9&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=8.%2BThe%2BSpine%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/611637651_640x360.jpg?r=pad",
+          "duration": 25
+        },
+        {
+          "order": 5,
+          "id": "149910167",
+          "title": "6. One Leg Stretch",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149910167.m3u8?s=32de621b4b817e1c3c8904632abd8add771351a5&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457520075?s=149910167_1524191399_907558e9ae7348c8ed21d73d54597ddd&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=6.%2BOne%2BLeg%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549257733_640x360.jpg?r=pad",
+          "duration": 19
+        },
+        {
+          "order": 6,
+          "id": "149910166",
+          "title": "7. Double Leg Stretch",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149910166.m3u8?s=ede7c9ed6af7bba7131f332f65984cad5cd467b3&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457520775?s=149910166_1524191399_3380b690b9982410a11f306318832f85&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=7.%2BDouble%2BLeg%2BStretch113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549250926_640x360.jpg?r=pad",
+          "duration": 49
+        },
+        {
+          "order": 7,
+          "id": "149909076",
+          "title": "5. Rolling Back",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149909076.m3u8?s=7a751c1841f3c7e9f570f787905461613f547716&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/469779984?s=149909076_1524191399_cd545728655f57b38919f5785dc0ff10&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=5.%2BRolling%2BBack113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549248607_640x360.jpg?r=pad",
+          "duration": 26
+        },
+        {
+          "order": 8,
+          "id": "149908484",
+          "title": "mat003 Roll Up (with bar and strap)",
+          "description": null,
+          "video": "https://player.vimeo.com/external/149908484.m3u8?s=7e853f0bd96a0bd40ebcc7521477c8553cbba957&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457512576?s=149908484_1524191399_6869d38794ec73aae62dcc620e56396e&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=mat003%2BRoll%2BUp%2B%2528with%2Bbar%2Band%2Bstrap%2529113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549247705_640x360.jpg?r=pad",
+          "duration": 24
+        },
+        {
+          "order": 9,
+          "id": "149908483",
+          "title": "mat003 Roll Up (with strap)",
+          "description": null,
+          "video": "https://player.vimeo.com/external/149908483.m3u8?s=65d5ec3db0cb7a30a725bfecebd47f39393317f8&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457512696?s=149908483_1524191399_7989308fd74eb7eadc7a540bbb9ca626&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=mat003%2BRoll%2BUp%2B%2528with%2Bstrap%2529113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/555407739_640x360.jpg?r=pad",
+          "duration": 25
+        },
+        {
+          "order": 10,
+          "id": "149907871",
+          "title": "1. The Hundred",
+          "description": "Blabla yada yada.",
+          "video": "https://player.vimeo.com/external/149907871.m3u8?s=0f23ff71f46f50e1611098ae7cd939f49cab0695&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/457510934?s=149907871_1524191399_0c80673025e12781d28d076e22f2de0b&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=1.%2BThe%2BHundred113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/555407656_640x360.jpg?r=pad",
+          "duration": 32
+        },
+        {
+          "order": 11,
+          "id": "149514908",
+          "title": "mat002 Hundred Prep (Lift)",
+          "description": null,
+          "video": "https://player.vimeo.com/external/149514908.m3u8?s=c30136c56f30a77f71c9b585b490ffe02ca35489&oauth2_token_id=1058509589",
+          "download": "https://player.vimeo.com/play/455832575?s=149514908_1524191399_1ddf6b4f6f94ec8480ae445c00c3f342&loc=external&context=Vimeo%5CController%5CApi%5CResources%5CUser%5CAlbum%5CVideosController.&download=1&filename=mat002%2BHundred%2BPrep%2B%2528Lift%2529113.mp4",
+          "thumbnail": "https://i.vimeocdn.com/video/549267442_640x360.jpg?r=pad",
+          "duration": 33
+        }
+      ]
+    }
+  ]
+}

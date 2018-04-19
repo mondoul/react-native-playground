@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ImageBackground, Image } from 'react-native';
+import { Image } from 'react-native';
 
 class ScaledImage extends Component {
     constructor(props) {
@@ -31,9 +31,7 @@ class ScaledImage extends Component {
 
     render() {
         return (
-            <ImageBackground source={this.state.imgSource} style={[this.props.style, { height: this.state.height, width: this.state.width }]}>
-                {this.props.children}
-            </ImageBackground>
+            <Image source={this.state.imgSource} style={[this.props.style, { height: this.state.height, width: this.state.width }]} />
         )
     }
 }

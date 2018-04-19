@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
 
-class ScaledImage extends Component {
+export default class ScaledImage extends Component {
     constructor(props) {
         super(props);
         let { source } = this.props;
@@ -46,5 +46,3 @@ ScaledImage.defaultProps = {
     width: 0,
     height: 0
 };
-
-export default ScaledImage;

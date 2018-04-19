@@ -11,7 +11,8 @@ import OfflineCard from '../../app/components/offlineCard';
 import VideoCard from '../../app/components/videoCard';
 import SyncButton from '../../app/components/syncButton';
 import CardHeader from '../../app/components/cardHeader';
-import ClassCardList from '../../app/components/classCardList';
+import CardList from '../../app/components/cardList';
+import PlaylistCard from '../../app/components/playlistCard';
 
 const { items } = data.playlists[0]; // get test items
 
@@ -21,6 +22,8 @@ const card = Object.assign({}, items[0], {
 });
 
 const classesPlaylist = data.playlists.find(p => p.id === '4221859');
+const smallCardsPlaylist = data.playlists.find(p => p.id === '4221862');
+
 
 storiesOf('Class Card/components', module)
     .addDecorator(story => (
@@ -31,10 +34,10 @@ storiesOf('Class Card/components', module)
             marginTop: 50}}>{story()}</View>
     ))
     .add('Offline Card', () => (
-        <OfflineCard/>
+        <OfflineCard large/>
     ))
     .add('Video Card', () => (
-        <VideoCard onCardPress={action('card pressed')} card={card}/>
+        <VideoCard onCardPress={action('card pressed')} card={card} />
     ))
     .add('Sync button off', () => (
         <SyncButton isLocal={false} isDownloading={false} sync={action('sync')} remove={action('remove')}/>
@@ -49,7 +52,7 @@ storiesOf('Class Card/components', module)
         <SyncButton isLocal={false} isDownloading={true} sync={action('sync')} remove={action('remove')}/>
     ))
     .add('Card Header', () => (
-        <CardHeader title={card.title} description={card.description}/>
+        <CardHeader title={card.title} description={card.description} large/>
     ));
 
 storiesOf('Class Card/examples', module)
@@ -85,10 +88,50 @@ storiesOf('Class Card/examples', module)
         });
 
         return (
-            <ClassCardList isOnline={true}
+            <CardList isOnline={true}
                            description={classesPlaylist.description}
                            showVideo={action('Show Video')}
                            offlineSync={action('Sync')}
-                           cards={cards} />
+                           cards={cards} large/>
+        )
+    });
+
+storiesOf('Playlist Card/examples', module)
+    .add('Card online', () => {
+        card.isDownloading = false;
+        card.isLocal = false;
+        return (
+            <PlaylistCard card={card} isOnline={true} offlineSync={action('offline sync')} showVideo={action('showVideo')} drawBottomDivider={false}/>
+        );
+    })
+    .add('Card offline', () => {
+        card.isDownloading = false;
+        card.isLocal = false;
+        return (
+            <PlaylistCard card={card} isOnline={false} offlineSync={action('offline sync')} showVideo={action('showVideo')} drawBottomDivider={false}/>
+        );
+    })
+    .add('Card local', () => {
+        card.isDownloading = false;
+        card.isLocal = true;
+        return (
+            <PlaylistCard card={card} isOnline={true} offlineSync={action('offline sync')} showVideo={action('showVideo')} drawBottomDivider={false}/>
+        );
+    }).add('Cards List Online', () => {
+        const cards = smallCardsPlaylist.items.map(c => {
+            return Object.assign({}, c, {
+                isLocal: false,
+                isDownloading: false,
+                imgUri: c.thumbnail,
+                videoUri: c.video
+            });
+        });
+
+        return (
+            <CardList isOnline={true}
+                      description={classesPlaylist.description}
+                      showVideo={action('Show Video')}
+                      offlineSync={action('Sync')}
+                      cards={cards}/>
         )
     });

@@ -15,10 +15,10 @@ import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
-import HomePage from '../components/HomePage';
+import HomePage from './HomePage';
 import ClassPage from './ClassPage';
 import PlaylistPage from './PlaylistPage';
-import InfoPage from '../components/InfoPage';
+import InfoPage from './InfoPage';
 import TabBar from '../components/TabBar';
 import { connect } from 'react-redux';
 import { fetchPlaylists, fetchLocalVideos, checkConnectivityStatus, connectionStatus, removeLocalVideo } from '../actions';

@@ -24,21 +24,21 @@ class ClassCard extends Component {
 
         return (
             <View style={ containerStyle } key={card.order}>
-                <CardHeader title={card.title} description={card.description}/>
+                <CardHeader title={card.title} description={card.description} large/>
                 {
                     isOnline &&
                     <SyncButton isLocal={card.isLocal}
                                 isDownloading={card.isDownloading}
                                 sync={() => offlineSync(card.id, true)}
-                                remove={() => offlineSync(card.id, false)}/>
+                                remove={() => offlineSync(card.id, false)} large/>
                 }
                 {
                     (isOnline || card.isLocal) &&
-                    <VideoCard onCardPress={showVideo} card={card}/>
+                    <VideoCard onCardPress={showVideo} card={card} large/>
                 }
                 {
                     !isOnline && !card.isLocal &&
-                    <OfflineCard />
+                    <OfflineCard large/>
                 }
             </View>
         );

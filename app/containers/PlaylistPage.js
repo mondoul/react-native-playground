@@ -10,7 +10,7 @@ import { Navigator } from 'react-native-deprecated-custom-components';
 import { connect } from 'react-redux';
 import styles from '../styles/PlaylistPageStyles';
 import Toolbar from '../components/Toolbar';
-import PlaylistCard from '../components/PlaylistCard';
+import PlaylistCard from '../components/playlistCard';
 import { mapStateToProps, mapDispatchToProps } from '../utils';
 
 class PlaylistPage extends Component {

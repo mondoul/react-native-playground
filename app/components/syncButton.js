@@ -9,6 +9,7 @@ export default class SyncButton extends Component {
     render() {
 
         const { isLocal, isDownloading, sync, remove } = this.props;
+        const styles = conditionalStyles(this.props);
 
         return (
             <View style={styles.syncContainer}>
@@ -37,16 +38,30 @@ SyncButton.propTypes = {
     isLocal: PropTypes.bool.isRequired,
     isDownloading: PropTypes.bool.isRequired,
     sync: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired
+    remove: PropTypes.func.isRequired,
+    large: PropTypes.bool,
+    small: PropTypes.bool
 };
 
-const styles = StyleSheet.create({
-    syncContainer: {
-        height: 25,
-        flexDirection: 'row',
-        justifyContent: 'flex-end',
-        paddingBottom: 8
-    },
+const conditionalStyles = (props) => StyleSheet.create({
+    syncContainer: StyleSheet.flatten([
+        {
+            flexDirection: 'row',
+        },
+        props.large &&
+        {
+            height: 25,
+            justifyContent: 'flex-end',
+            paddingBottom: 8
+        },
+        props.small &&
+        {
+            flex: 0.15,
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingTop: 10,
+        }
+    ]),
     progress: {
         width: 22,
         height: 22

@@ -7,24 +7,40 @@ import fonts from '../styles/fonts';
 
 export default class OfflineCard extends Component {
     render() {
+
+        const iconSize = this.props.large ? 40 : 20;
+        const styles = conditionalStyles(this.props);
+
         return(
             <View style={styles.container}>
-                <Icon name='prohibited' size={40} color={colors.white} />
-                <Text style={styles.text}>
-                    Not Available Offline
-                </Text>
+                <Icon name='prohibited' size={iconSize} color={colors.white} />
+                {
+                    this.props.large &&
+                    <Text style={styles.text}>
+                        Not Available Offline
+                    </Text>
+                }
             </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 180,
-        backgroundColor: colors.lighterGray
-    },
+const conditionalStyles = (props) => StyleSheet.create({
+    container: StyleSheet.flatten([
+        {
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: colors.lighterGray
+        },
+        props.large &&
+        {
+            height: 180,
+        },
+        props.small &&
+        {
+            height: 80,
+        }
+    ]),
     text: {
         color: colors.white,
         ...fonts.heavyFont

@@ -10,7 +10,6 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-native": "^0.55.3",
-    "react-native-deprecated-custom-components": "^0.1.2",
     "react-native-fs": "^2.9.12",
     "react-native-loading-spinner-overlay": "^0.5.2",
     "react-native-orientation": "^3.1.3",

@@ -6,7 +6,7 @@ import {
     ScrollView,
     View
 } from 'react-native';
-import Toolbar from './Toolbar';
+import Toolbar from '../components/Toolbar';
 import styles from '../styles/HomePageStyles';
 import colors from '../styles/colors';
 

@@ -1,4 +1,4 @@
-import Pilates360 from './app/containers/root';
+import Pilates360 from './app/App';
 import {
   AppRegistry
 } from 'react-native';

@@ -15,8 +15,8 @@ import Orientation from 'react-native-orientation';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
-import HomePage from './HomePage';
-import ClassPage from './ClassPage';
+import HomePage from '../components/homeScreen';
+import ClassPage from './ListPage';
 import PlaylistPage from './PlaylistPage';
 import InfoPage from './InfoPage';
 import TabBar from '../components/TabBar';

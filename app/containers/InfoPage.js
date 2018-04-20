@@ -7,13 +7,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import styles from '../styles/InfoPageStyles';
-import Toolbar from '../components/Toolbar';
 
 class InfoPage extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <Toolbar title={this.props.title} />
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.intro}>
                         <Text style={styles.defaultFont}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at imperdiet nisl.

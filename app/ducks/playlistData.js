@@ -2,7 +2,7 @@ const playlistServiceURL = 'https://threesixty-pilates-mat.herokuapp.com/playlis
 const playlistLocalStorageKey = 'Playlists';
 
 // Actions
-import {AsyncStorage, NetInfo} from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 const CONNECTION_STATUS = 'CONNECTION_STATUS';
 const REQUEST_PLAYLISTS = 'REQUEST_PLAYLISTS';

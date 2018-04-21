@@ -17,7 +17,7 @@ export default class VideoCard extends Component {
 
         return(
             <TouchableOpacity
-                onPress={onCardPress} style={styles.cardThumbnailContainer}>
+                onPress={() => onCardPress(card)} style={styles.cardThumbnailContainer}>
                 <ScaledImage style={styles.cardThumbnail} {...(large ? {height: 180} : {width: IMAGE_WIDTH} )} source={{uri: card.imgUri}} />
                 <Text style={styles.durationText}>
                     { getDuration(card.duration) }

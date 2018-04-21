@@ -1,5 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
-import { saveVideoLocally, removeLocalVideo } from './actions';
+import { saveVideoLocally, removeLocalVideo } from './ducks/localData';
+import { navigateToRoute } from './ducks/nav';
 
 const str_pad_left = (string,pad,length) => {
     return (new Array(length+1).join(pad)+string).slice(-length);
@@ -25,9 +26,9 @@ const mapLocalDataToCards = (items, localData) => {
 
     items.forEach(card => {
         let localItem = localData[card.id];
-        const isLocal = localItem && !localItem.isError && !localItem.isSaving; // not local if currently being saved
-        const isDownloading = localItem && localItem.isSaving;
-        const isError = localItem && localItem.isError;
+        const isLocal = localItem ? !localItem.isError && !localItem.isSaving : false; // not local if currently being saved
+        const isDownloading = localItem ? localItem && localItem.isSaving : false;
+        const isError = localItem ? localItem.isError : false;
         const videoUri = isLocal ? localItem.path : card.video;
         const imgUri = isLocal ? `file://${localItem.imgPath}` : card.thumbnail;
 
@@ -47,25 +48,34 @@ const mapLocalDataToCards = (items, localData) => {
 };
 
 export function mapStateToProps(state, ownProps) {
-    let { localData } = state;
-    let { isOnline } = state.playlistData;
+    const { localData } = state;
+    const { isOnline } = state.app;
+    const { category, large } = ownProps.navigation.state.params;
 
-    let { items } = ownProps.data;
-    let cards = mapLocalDataToCards(items, localData);
+    const { items, description } = state.playlistData[category];
+    const cards = mapLocalDataToCards(items, localData);
 
     return {
         cards,
-        isOnline
+        description,
+        category,
+        isOnline,
+        large
     }
 }
 
-export function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch, ownProps) {
+    const { category } = ownProps.navigation.state.params;
     return {
-        offlineSync: (id, category, available) => {
-            if (available)
+        offlineSync: (id, available) => {
+            if (available) {
                 dispatch(saveVideoLocally(id, category));
-            else
+            } else {
                 dispatch(removeLocalVideo(id));
+            }
+        },
+        showVideo: (card) => {
+            dispatch(navigateToRoute('VideoPlayer', { video: {src: card.videoUri, title: card.title, id: card.id} }))
         }
     }
 }

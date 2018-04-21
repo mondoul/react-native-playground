@@ -15,9 +15,7 @@ export default class VideoPlayerScreen extends Component {
     }
 
     render() {
-        const { onBack, onError } = this.props;
-        const { params } = this.props.navigation.state;
-        const video = params ? params.video : null;
+        const { onBack, onError, video } = this.props;
 
         return (
             <VideoPlayer onBack={onBack}
@@ -32,5 +30,6 @@ export default class VideoPlayerScreen extends Component {
 
 VideoPlayerScreen.propTypes = {
     onBack: PropTypes.func.isRequired,
-    onError: PropTypes.func.isRequired
+    onError: PropTypes.func.isRequired,
+    video: PropTypes.object.isRequired
 };

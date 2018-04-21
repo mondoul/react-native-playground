@@ -6,6 +6,11 @@ import ListWrapper from './listWrapper';
 
 export default class CardList extends Component {
 
+    constructor(props) {
+        super(props);
+        console.log('card list props', props);
+    }
+
     render() {
 
         const { cards, isOnline, description, showVideo, offlineSync, large } = this.props;

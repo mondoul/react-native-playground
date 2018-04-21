@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Foundation';
 import colors from '../styles/colors';
 import HomePage from '../containers/HomePage';
 import InfoPage from '../containers/InfoPage';
+import ListPage from '../containers/ListPage';
 
 export default TabNavigator(
     {
@@ -12,15 +13,15 @@ export default TabNavigator(
             navigationOptions: { title: '360° Pilates Mat'}
         },
         Orientation: {
-            screen: InfoPage,
+            screen: ListPage,
             navigationOptions: { title: 'Orientation'}
         },
         Exercises: {
-            screen: InfoPage,
+            screen: ListPage,
             navigationOptions: { title: 'Exercises'}
         },
         Sequences: {
-            screen: InfoPage,
+            screen: ListPage,
             navigationOptions: { title: 'Sequences'}
         },
         Info: {

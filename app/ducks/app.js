@@ -35,7 +35,6 @@ export const initializeApp = () => {
         // https://github.com/facebook/react-native/issues/8615
         NetInfo.isConnected.fetch().then(() => {
             NetInfo.isConnected.fetch().then(isOnline => {
-                console.log('isOnline', isOnline);
                 dispatch(connectionStatus(isOnline));
             });
         });
@@ -49,13 +48,11 @@ export const initializeApp = () => {
 };
 
 export const unmount = () => {
-    console.log('Unmounting...');
     NetInfo.removeEventListener('connectionChange', connectionChangeHandler);
 };
 
 const connectionChangeHandler = (connectionType) => {
     return (dispatch) => {
-        console.log('connectionType', connectionType);
         if (connectionType === 'none') {
             dispatch(connectionStatus(false));
         } else {

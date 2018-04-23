@@ -39,8 +39,8 @@ export default (state = {}, action) => {
             });
 
         case REMOVED_VIDEO:
-            delete state[action.videoId]; // is there a better way without mutating the state ?
-            return Object.assign({}, state);
+            const { [action.videoId]: _ , ...newState } = state;
+            return newState;
 
         case FAILED_SAVED_VIDEO:
         case FAILED_REMOVE_VIDEO:
@@ -55,14 +55,12 @@ export default (state = {}, action) => {
         case READ_LOCAL_VIDEOS: {
             let newState = {};
             action.videos.forEach(v => {
-                Object.assign(newState, {
-                    [v.id]: {
+                newState[v.id] = {
                         isSaving: false,
                         isError: false,
                         imgPath: v.imgPath,
                         path: v.path
                     }
-                })
             });
 
             return Object.assign({}, state, newState);
@@ -122,38 +120,37 @@ export const saveVideoLocally = (id, category) => {
         dispatch(savingVideo(id));
         let { items } = getState().playlistData[category];
         const video = items.find(i => i.id === id);
-        let imgUrl = video.thumbnail;
-        let videoUrl = video.download;
-        return RNFS.downloadFile({
-            fromUrl: imgUrl,
+
+        const downloadVideo = RNFS.downloadFile({
+            fromUrl: video.thumbnail,
             toFile: getImgFilePath(id)
-        }).promise.then(() => {
-            RNFS.downloadFile({
-                fromUrl: videoUrl,
-                toFile: getVideoFilePath(id),
-            }).promise.then(() => {
-                dispatch(savedVideo(id, getVideoFilePath(id), getImgFilePath(id)));
-            }).catch(() => {
-                dispatch(failedSavedVideo(id));
-            });
-        }).catch(() => {
-            dispatch(failedSavedVideo(id));
-        });
-    }
+        }).promise;
+
+        const downloadImg =  RNFS.downloadFile({
+            fromUrl: video.download,
+            toFile: getVideoFilePath(id),
+        }).promise;
+
+        return Promise.all([downloadImg, downloadVideo])
+            .then((results) => {
+                if (results.some(r => r.statusCode !== 200)) {
+                    dispatch(failedSavedVideo(id))
+                } else {
+                    dispatch(savedVideo(id, getVideoFilePath(id), getImgFilePath(id)));
+                }
+            })
+            .catch(() => dispatch(failedSavedVideo(id)));
+        }
 };
 
 export const removeLocalVideo = (id) => {
     return (dispatch) => {
-        return RNFS.unlink(getVideoFilePath(id)).then(() => {
-            RNFS.unlink(getImgFilePath(id)).then(() => {
-                dispatch(removedVideo(id));
-            }).catch(() => {
-                dispatch(failedRemovedVideo(id));
-            });
-        }).catch(() => {
-            dispatch(failedRemovedVideo(id));
-            //todo: dispatch a popup ?
-        });
+        const removeVideoFile = RNFS.unlink(getVideoFilePath(id));
+        const removeImgFile = RNFS.unlink(getImgFilePath(id));
+
+        return Promise.all([removeImgFile, removeVideoFile])
+                    .then(() => dispatch(removedVideo(id)))
+                    .catch(() => dispatch(failedRemovedVideo(id)));
     }
 };
 

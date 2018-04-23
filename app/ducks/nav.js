@@ -45,6 +45,5 @@ const navigateToRoute = (routeName, params = {}) =>  {
 
 // Selectors
 export const getNavigationParams = (state) => {
-    console.log('Nav params', state.navigation.state.params);
     return state.navigation.state.params;
 };

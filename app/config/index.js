@@ -12,3 +12,5 @@ export const metrics = {
 export const str_pad_left = (string,pad,length) => {
     return (new Array(length+1).join(pad)+string).slice(-length);
 };
+
+export const playlistServiceURL = 'https://threesixty-pilates-mat.herokuapp.com/playlists';

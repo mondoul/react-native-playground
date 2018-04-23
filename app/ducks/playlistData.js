@@ -1,9 +1,10 @@
-const playlistServiceURL = 'https://threesixty-pilates-mat.herokuapp.com/playlists';
+import { AsyncStorage } from 'react-native';
+import { playlistServiceURL } from '../config';
+
+
 const playlistLocalStorageKey = 'Playlists';
 
 // Actions
-import { AsyncStorage } from 'react-native';
-
 const CONNECTION_STATUS = 'CONNECTION_STATUS';
 const REQUEST_PLAYLISTS = 'REQUEST_PLAYLISTS';
 const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
@@ -24,14 +25,14 @@ export default (state = {
         case RECEIVE_PLAYLISTS:
             if (action.error) {
                 return Object.assign({}, state, {
-                    isError: action.error,
+                    isError: true,
                 });
             } else {
                 return Object.assign({}, state, {
                     isFetching: false,
-                    orientation: action.data.playlists.find(p => p.id === '4221859'),
-                    exercises: action.data.playlists.find(p => p.id === '4221862'),
-                    sequences: action.data.playlists.find(p => p.id === '4221868')
+                    orientation: action.orientation,
+                    exercises: action.exercises,
+                    sequences: action.sequences
                 });
             }
         default:
@@ -49,7 +50,9 @@ export const requestPlaylists = () => {
 export const receivePlaylists = (data, error = false) => {
     return {
         type: RECEIVE_PLAYLISTS,
-        data,
+        orientation: data.playlists.find(p => p.id === data.orientation),
+        exercises: data.playlists.find(p => p.id === data.exercises),
+        sequences: data.playlists.find(p => p.id === data.sequences),
         error
     };
 };
@@ -63,8 +66,9 @@ export const fetchPlaylists = () => {
                 if (json.playlists.length > 0) {
                     dispatch(receivePlaylists(json));
                     AsyncStorage.setItem(playlistLocalStorageKey, JSON.stringify(json))
+                        .then(() => dispatch({type: 'PLAYLISTS_STORED'}))
+                        .catch((err) => console.log('Failed storing playlist locally.'));
                 } else {
-                    console.log('Empty playlists');
                     return getLocalPlaylists(dispatch);
                 }
             }).catch(err => {

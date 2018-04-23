@@ -31,5 +31,9 @@ export default class VideoPlayerScreen extends Component {
 VideoPlayerScreen.propTypes = {
     onBack: PropTypes.func.isRequired,
     onError: PropTypes.func.isRequired,
-    video: PropTypes.object.isRequired
+    video: PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired
+    }).isRequired
 };

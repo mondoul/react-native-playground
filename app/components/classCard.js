@@ -5,13 +5,14 @@ import {
     StyleSheet
 } from 'react-native';
 
+import cardPropType from '../config/card';
 import OfflineCard from './offlineCard';
 import VideoCard from './videoCard';
 import SyncButton from './syncButton';
 import CardHeader from './cardHeader';
 import colors from '../styles/colors';
 
-class ClassCard extends Component {
+export default class ClassCard extends Component {
 
     render() {
 
@@ -46,11 +47,11 @@ class ClassCard extends Component {
 }
 
 ClassCard.propTypes = {
-    card: PropTypes.object,
+    card: cardPropType.isRequired,
     drawBottomDivider: PropTypes.bool,
-    isOnline: PropTypes.bool,
-    offlineSync: PropTypes.func,
-    showVideo: PropTypes.func
+    isOnline: PropTypes.bool.isRequired,
+    offlineSync: PropTypes.func.isRequired,
+    showVideo: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({
@@ -65,5 +66,3 @@ const styles = StyleSheet.create({
         borderBottomColor: colors.lighterGray
     }
 });
-
-export default ClassCard;

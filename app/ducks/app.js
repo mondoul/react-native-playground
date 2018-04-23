@@ -49,6 +49,7 @@ export const initializeApp = () => {
 };
 
 export const unmount = () => {
+    console.log('Unmounting...');
     NetInfo.removeEventListener('connectionChange', connectionChangeHandler);
 };
 
@@ -63,9 +64,21 @@ const connectionChangeHandler = (connectionType) => {
     }
 };
 
+// Selectors
 export const getStatus = (state) => {
   return {
       isFetching: state.playlistData.isFetching,
       isError: state.playlistData.isError
   }
+};
+
+export const getAppState = (state) => {
+    return {
+        isOnline: state.app.isOnline,
+        localData: state.localData
+    }
+};
+
+export const getPlaylistData = (state, category) => {
+    return state.playlistData[category];
 };

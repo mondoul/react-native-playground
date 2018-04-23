@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { navigateBack } from '../ducks/nav';
+import * as nav from '../ducks/nav';
 import { removeLocalVideo } from '../ducks/localData';
 
 import VideoPlayer from '../components/videoPlayerScreen';
 
 const mapStateToProps = (state, ownProps) => {
-    const { video } = ownProps.navigation.state.params;
+    const { video } = nav.getNavigationParams(ownProps);
 
     return {
         video
@@ -15,10 +15,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onBack: () => dispatch(navigateBack()),
+        onBack: () => dispatch(nav.navigateBack()),
         onError: (id) => {
             dispatch(removeLocalVideo(id));
-            dispatch(navigateBack());
+            dispatch(nav.navigateBack());
         }
     }
 };

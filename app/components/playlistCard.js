@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     StyleSheet
 } from 'react-native';
 
 import colors from '../styles/colors';
+import cardPropType from '../config/card';
 import OfflineCard from './offlineCard';
 import CardHeader from './cardHeader';
 import SyncButton from './syncButton';
 import VideoCard from './videoCard';
-import PropTypes from 'prop-types';
 
 export default class PlaylistCard extends Component {
     render() {
@@ -50,11 +51,11 @@ export default class PlaylistCard extends Component {
 }
 
 PlaylistCard.propTypes = {
-    card: PropTypes.object,
+    card: cardPropType.isRequired,
     drawBottomDivider: PropTypes.bool,
-    isOnline: PropTypes.bool,
-    offlineSync: PropTypes.func,
-    showVideo: PropTypes.func
+    isOnline: PropTypes.bool.isRequired,
+    offlineSync: PropTypes.func.isRequired,
+    showVideo: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({

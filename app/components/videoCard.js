@@ -2,13 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import {getDuration, metrics} from '../utils';
+import { metrics, str_pad_left } from '../config';
 import colors from '../styles/colors';
 import ScaledImage from './scaledImage';
+import cardPropType from '../config/card';
 
 const IMAGE_WIDTH = ((metrics.DEVICE_WIDTH / 3) * 1.13) - 5;
 
 export default class VideoCard extends Component {
+
+    getDuration = (time) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time - minutes * 60;
+        return str_pad_left(minutes,'0',2) + ':' + str_pad_left(seconds,'0',2);
+    };
 
     render() {
 
@@ -20,7 +27,7 @@ export default class VideoCard extends Component {
                 onPress={() => onCardPress(card)} style={styles.cardThumbnailContainer}>
                 <ScaledImage style={styles.cardThumbnail} {...(large ? {height: 180} : {width: IMAGE_WIDTH} )} source={{uri: card.imgUri}} />
                 <Text style={styles.durationText}>
-                    { getDuration(card.duration) }
+                    { this.getDuration(card.duration) }
                 </Text>
             </TouchableOpacity>
         );
@@ -28,7 +35,7 @@ export default class VideoCard extends Component {
 }
 
 VideoCard.propTypes = {
-    card: PropTypes.any,
+    card: cardPropType.isRequired,
     onCardPress: PropTypes.func.isRequired,
     large: PropTypes.bool,
     small: PropTypes.bool

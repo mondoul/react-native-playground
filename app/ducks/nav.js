@@ -31,10 +31,20 @@ export const navigateBack = () => {
     }
 };
 
-export const navigateToRoute = (routeName, params = {}) =>  {
+export const navigateToVideoPlayer = (params) => {
+    return navigateToRoute('VideoPlayer', params);
+};
+
+const navigateToRoute = (routeName, params = {}) =>  {
     return {
         type: NAVIGATE,
         routeName,
         params
     }
+};
+
+// Selectors
+export const getNavigationParams = (state) => {
+    console.log('Nav params', state.navigation.state.params);
+    return state.navigation.state.params;
 };

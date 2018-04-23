@@ -62,10 +62,9 @@ const conditionalStyles = (props) => StyleSheet.create({
         {
             backgroundColor: colors.darkerGray,
             color: colors.white,
-            alignSelf: 'flex-end',
             position: 'absolute',
-            paddingLeft: 3,
-            paddingRight: 3,
+            textAlign: 'center',
+            width: 46,
             bottom: 0,
         },
         props.large &&

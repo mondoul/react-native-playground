@@ -71,14 +71,14 @@ export default (state = {}, action) => {
 };
 
 // Action Creators
-export const savingVideo = (videoId) => {
+const savingVideo = (videoId) => {
     return {
         type: SAVING_VIDEO,
         videoId
     }
 };
 
-export const savedVideo = (videoId, videoPath, imgPath) => {
+const savedVideo = (videoId, videoPath, imgPath) => {
     return {
         type: SAVED_VIDEO,
         videoId,
@@ -87,47 +87,45 @@ export const savedVideo = (videoId, videoPath, imgPath) => {
     }
 };
 
-export const removedVideo = (videoId) => {
+const removedVideo = (videoId) => {
     return {
         type: REMOVED_VIDEO,
         videoId
     }
 };
 
-export const failedSavedVideo = (videoId) => {
+const failedSavedVideo = (videoId) => {
     return {
         type: FAILED_SAVED_VIDEO,
         videoId
     }
 };
 
-export const failedRemovedVideo = (videoId) => {
+const failedRemovedVideo = (videoId) => {
     return {
         type: FAILED_REMOVE_VIDEO,
         videoId
     }
 };
 
-export const readLocalVideos = (videos) => {
+const readLocalVideos = (videos) => {
     return {
         type: READ_LOCAL_VIDEOS,
         videos
     }
 };
 
-export const saveVideoLocally = (id, category) => {
-    return (dispatch, getState) => {
+export const saveVideoLocally = (id, thumbnailUri, videoUri) => {
+    return (dispatch) => {
         dispatch(savingVideo(id));
-        let { items } = getState().playlistData[category];
-        const video = items.find(i => i.id === id);
 
-        const downloadVideo = RNFS.downloadFile({
-            fromUrl: video.thumbnail,
+        const downloadImg = RNFS.downloadFile({
+            fromUrl: thumbnailUri,
             toFile: getImgFilePath(id)
         }).promise;
 
-        const downloadImg =  RNFS.downloadFile({
-            fromUrl: video.download,
+        const downloadVideo =  RNFS.downloadFile({
+            fromUrl: videoUri,
             toFile: getVideoFilePath(id),
         }).promise;
 

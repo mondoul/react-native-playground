@@ -30,8 +30,8 @@ export default class ClassCard extends Component {
                     isOnline &&
                     <SyncButton isLocal={card.isLocal}
                                 isDownloading={card.isDownloading}
-                                sync={() => offlineSync(card.id, true)}
-                                remove={() => offlineSync(card.id, false)} large/>
+                                sync={() => offlineSync(card, true)}
+                                remove={() => offlineSync(card, false)} large/>
                 }
                 {
                     (isOnline || card.isLocal) &&

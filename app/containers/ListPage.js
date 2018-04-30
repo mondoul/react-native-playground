@@ -13,10 +13,9 @@ const mapStateToProps = (state, ownProps) => {
     const { items, description } = app.getPlaylistData(state, category);
 
     const cards = items.map(item => {
-        const localItem = localData[item.id];
 
         // NOT a local item
-        if (typeof localItem === 'undefined') {
+        if (!localData.hasOwnProperty(item.id)) {
             return Object.assign({}, item, {
                 isLocal: false,
                 isDownloading: false,
@@ -27,6 +26,7 @@ const mapStateToProps = (state, ownProps) => {
         }
 
         // Local item
+        const localItem = localData[item.id];
         const isLocal = !localItem.isError && !localItem.isSaving; // if error or being saved, it's not local yet
         return Object.assign({}, item, {
             isLocal,
@@ -47,14 +47,13 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-    const { category } = nav.getNavigationParams(ownProps);
+const mapDispatchToProps = (dispatch) => {
     return {
-        offlineSync: (id, available) => {
+        offlineSync: (card, available) => {
             if (available) {
-                dispatch(saveVideoLocally(id, category));
+                dispatch(saveVideoLocally(card.id, card.thumbnail, card.download));
             } else {
-                dispatch(removeLocalVideo(id));
+                dispatch(removeLocalVideo(card.id));
             }
         },
         showVideo: (card) => {

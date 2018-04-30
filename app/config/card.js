@@ -10,4 +10,6 @@ export default PropTypes.shape({
     isError: PropTypes.bool.isRequired,
     videoUri: PropTypes.string.isRequired,
     imgUri: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string.isRequired,
+    download: PropTypes.string.isRequired
 });

@@ -39,8 +39,8 @@ export default class PlaylistCard extends Component {
                     isOnline &&
                     <SyncButton isLocal={card.isLocal}
                                 isDownloading={card.isDownloading}
-                                sync={() => offlineSync(card.id, true)}
-                                remove={() => offlineSync(card.id, false)} small/>
+                                sync={() => offlineSync(card, true)}
+                                remove={() => offlineSync(card, false)} small/>
                 }
                 {
                     !isOnline && <View style={styles.syncFiller} />

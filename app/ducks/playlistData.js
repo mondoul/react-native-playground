@@ -8,6 +8,8 @@ const playlistLocalStorageKey = 'Playlists';
 const CONNECTION_STATUS = 'CONNECTION_STATUS';
 const REQUEST_PLAYLISTS = 'REQUEST_PLAYLISTS';
 const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
+const PLAYLISTS_STORED = 'PLAYLISTS_STORED';
+const READING_LOCAL_PLAYLISTS = 'READING_LOCAL_PLAYLISTS';
 
 // Reducer
 export default (state = {
@@ -41,13 +43,13 @@ export default (state = {
 };
 
 // Action creators
-export const requestPlaylists = () => {
+const requestPlaylists = () => {
     return {
         type: REQUEST_PLAYLISTS
     };
 };
 
-export const receivePlaylists = (data, error = false) => {
+const receivePlaylists = (data, error = false) => {
     return {
         type: RECEIVE_PLAYLISTS,
         orientation: data.playlists.find(p => p.id === data.orientation),
@@ -61,29 +63,37 @@ export const fetchPlaylists = () => {
     return (dispatch) => {
         dispatch(requestPlaylists());
         return fetch(playlistServiceURL)
-            .then((response) => { return response.json(); })
+            .then(response => {
+                if(!response.ok) {
+                    throw Error(response.status);
+                }
+                return response.json()
+            })
             .then(json => {
                 if (json.playlists.length > 0) {
                     dispatch(receivePlaylists(json));
                     AsyncStorage.setItem(playlistLocalStorageKey, JSON.stringify(json))
-                        .then(() => dispatch({type: 'PLAYLISTS_STORED'}))
+                        .then(() => dispatch({type: PLAYLISTS_STORED}))
                         .catch((err) => console.log('Failed storing playlist locally.'));
                 } else {
-                    return getLocalPlaylists(dispatch);
+                    dispatch(getLocalPlaylists());
                 }
             }).catch(err => {
                 console.log('Error fetching playlists', err);
-                return getLocalPlaylists(dispatch);
+                dispatch(getLocalPlaylists());
             });
     };
 };
 
-const getLocalPlaylists = (dispatch) => {
-    AsyncStorage.getItem(playlistLocalStorageKey)
-        .then(localPlaylists => {
-            dispatch(receivePlaylists(JSON.parse(localPlaylists), false, false));
-        }).catch(err => {
-        dispatch(receivePlaylists({}, true, false));
-    });
+const getLocalPlaylists = () => {
+    return (dispatch) => {
+        dispatch({type: READING_LOCAL_PLAYLISTS});
+        AsyncStorage.getItem(playlistLocalStorageKey)
+            .then(localPlaylists => {
+                dispatch(receivePlaylists(JSON.parse(localPlaylists)));
+            }).catch(err => {
+                dispatch(receivePlaylists({}, true));
+        });
+    }
 };
 

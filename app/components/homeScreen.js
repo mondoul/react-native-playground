@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 export default class HomeScreen extends Component {
 
     componentDidMount() {
-        this.props.initializeApp();
+        setTimeout(this.props.initializeApp, 500);
     }
 
     render() {
